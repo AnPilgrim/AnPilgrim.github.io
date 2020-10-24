@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-10-24T09:09:32.570Z</updated>
+  <updated>2020-10-24T09:54:44.642Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,40 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>关于SpringBoot启动某Service实现类报错发现两个实例问题</title>
-    <link href="http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%9F%90Service%E5%AE%9E%E7%8E%B0%E7%B1%BB%E6%8A%A5%E9%94%99%E5%8F%91%E7%8E%B0%E4%B8%A4%E4%B8%AA%E5%AE%9E%E4%BE%8B%E9%97%AE%E9%A2%98/"/>
-    <id>http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%9F%90Service%E5%AE%9E%E7%8E%B0%E7%B1%BB%E6%8A%A5%E9%94%99%E5%8F%91%E7%8E%B0%E4%B8%A4%E4%B8%AA%E5%AE%9E%E4%BE%8B%E9%97%AE%E9%A2%98/</id>
-    <published>2020-10-24T09:08:25.000Z</published>
-    <updated>2020-10-24T09:09:32.570Z</updated>
-    
-    <content type="html"><![CDATA[<p>ServiceImpl required a single bean, but 2 were found;</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;ServiceImpl required a single bean, but 2 were found;&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>关于SpringBoot启动报错DataSource问题</title>
     <link href="http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/"/>
     <id>http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/</id>
     <published>2020-10-24T09:07:05.000Z</published>
-    <updated>2020-10-24T09:10:25.952Z</updated>
+    <updated>2020-10-24T09:54:44.642Z</updated>
     
-    <content type="html"><![CDATA[<p>exclude = DataSource…</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Springboot启动时报错-If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath"><a href="#Springboot启动时报错-If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath" class="headerlink" title="Springboot启动时报错 If you want an embedded database (H2, HSQL or Derby), please put it on the classpath."></a>Springboot启动时报错 If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.</h2><p>产生这个错误的原因是springboot的自动配置，如果你没有配置DataSource就会导致这个错误</p><p>版本一：解决方法</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)</span><span class="comment">//排除自动配置</span></span><br></pre></td></tr></table></figure><p>关于exclude属性和DataSource问题</p><p>exclude属性是@SpringBootApplication注解中的@EnableAutoConfiguration属性 排除某个类的自动配置</p><p>在本例中，datasource没有配置所以启动时报错</p><p>版本二：上述问题又出现了一次这次按版本一没有成功，在网上找了很多答案,</p><p>其中的一篇:<a href="https://www.cnblogs.com/yourGod/p/9178515.html">https://www.cnblogs.com/yourGod/p/9178515.html</a></p><p>按照上述的解决办法:)</p><p>版本一这样之后还会报错：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Description:</span><br><span class="line">Field userRepository in com.wcyq.demo.service.impl.UserServiceImpl required a bean of type &#39;com.wcyq.demo.domain.UserRepository&#39; that could not be found.</span><br><span class="line">Action:</span><br><span class="line">Consider defining a bean of type &#39;com.wcyq.demo.domain.UserRepository&#39; in your configuration.</span><br><span class="line">Process finished with exit code 1</span><br></pre></td></tr></table></figure><blockquote><p>这样dao就找不到了</p><p>最后解决办法是application.yml文件配置改变一下</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">application:</span><br><span class="line">name: ihrm-company</span><br><span class="line">datasource:</span><br><span class="line">url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;ihrm?characterEncoding&#x3D;utf-8</span><br><span class="line">username: root</span><br><span class="line">password: root</span><br><span class="line">driverClassName: com.mysql.jdbc.Driver</span><br><span class="line">改为下面的 加了druid连接</span><br><span class="line">spring:</span><br><span class="line">application:</span><br><span class="line">name: ihrm-company</span><br><span class="line">datasource:</span><br><span class="line">druid:</span><br><span class="line">url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;ihrm?characterEncoding&#x3D;utf-8</span><br><span class="line">username: root</span><br><span class="line">password: root</span><br><span class="line">driverClassName: com.mysql.jdbc.Driver</span><br></pre></td></tr></table></figure><p>是yml文件出现了问题，在此记录一下</p><hr><p>最后总结一下，导入了和数据库连接的依赖就要考虑你的datasource问题，如果需要就在配置文件中配置好，SpringBoot会自动导入；如果不需要，把exclude写上，或者依赖删掉。</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;exclude = DataSource…&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;h2 id=&quot;Springboot启动时报错-If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath&quot;&gt;&lt;a href=&quot;#Springboot启动时报错-If-you-w</summary>
       
     
     
