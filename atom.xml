@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2020-10-21T07:13:28.583Z</updated>
+  <updated>2020-10-24T09:09:32.570Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于SpringBoot启动某Service实现类报错发现两个实例问题</title>
+    <link href="http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%9F%90Service%E5%AE%9E%E7%8E%B0%E7%B1%BB%E6%8A%A5%E9%94%99%E5%8F%91%E7%8E%B0%E4%B8%A4%E4%B8%AA%E5%AE%9E%E4%BE%8B%E9%97%AE%E9%A2%98/"/>
+    <id>http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%9F%90Service%E5%AE%9E%E7%8E%B0%E7%B1%BB%E6%8A%A5%E9%94%99%E5%8F%91%E7%8E%B0%E4%B8%A4%E4%B8%AA%E5%AE%9E%E4%BE%8B%E9%97%AE%E9%A2%98/</id>
+    <published>2020-10-24T09:08:25.000Z</published>
+    <updated>2020-10-24T09:09:32.570Z</updated>
+    
+    <content type="html"><![CDATA[<p>ServiceImpl required a single bean, but 2 were found;</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;ServiceImpl required a single bean, but 2 were found;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于SpringBoot启动报错DataSource问题</title>
+    <link href="http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/"/>
+    <id>http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/</id>
+    <published>2020-10-24T09:07:05.000Z</published>
+    <updated>2020-10-24T09:10:25.952Z</updated>
+    
+    <content type="html"><![CDATA[<p>exclude = DataSource…</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;exclude = DataSource…&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>关于Spring组件未加人到容器报错问题</title>
