@@ -17,20 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>关于SpringBoot启动报错DataSource问题 | Hexo</title>
-  <meta name="description" content="Springboot启动时报错 If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.产生这个错误的原因是springboot的自动配置，如果你没有配置DataSource就会导致这个错误 版本一：解决方法 1@SpringBootApplication(exclude &#x3D; Data">
+  <title>Shrio安全框架入门 | Hexo</title>
+  <meta name="description" content="作为安全框架shiro更加便捷简单，相比与Spring Security来说。 shiro主要使用的几个内部结构： Subject:主体，可以看到主体可以是任何可以与应用交互的“用户”; SecurityManager:相当于SpringMVC中的DispatcherServlet或者Struts2中的FilterDispatcher;是Shiro的心 脏;所有具体的交互都通过SecurityMa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于SpringBoot启动报错DataSource问题">
-<meta property="og:url" content="http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="Shrio安全框架入门">
+<meta property="og:url" content="http://example.com/2020/10/28/Shrio%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Springboot启动时报错 If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.产生这个错误的原因是springboot的自动配置，如果你没有配置DataSource就会导致这个错误 版本一：解决方法 1@SpringBootApplication(exclude &#x3D; Data">
+<meta property="og:description" content="作为安全框架shiro更加便捷简单，相比与Spring Security来说。 shiro主要使用的几个内部结构： Subject:主体，可以看到主体可以是任何可以与应用交互的“用户”; SecurityManager:相当于SpringMVC中的DispatcherServlet或者Struts2中的FilterDispatcher;是Shiro的心 脏;所有具体的交互都通过SecurityMa">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-24T09:07:05.000Z">
-<meta property="article:modified_time" content="2020-10-24T09:54:44.642Z">
+<meta property="article:published_time" content="2020-10-28T02:44:05.000Z">
+<meta property="article:modified_time" content="2020-10-28T03:10:32.924Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/index.html">
+  <link rel="canonical" href="http://example.com/2020/10/28/Shrio%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -326,14 +326,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-关于SpringBoot启动报错DataSource问题" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Shrio安全框架入门" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      关于SpringBoot启动报错DataSource问题
+      Shrio安全框架入门
     </h1>
   
 
@@ -341,8 +341,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/" class="article-date">
-	  <time datetime="2020-10-24T09:07:05.000Z" itemprop="datePublished">2020-10-24</time>
+	<a href="/2020/10/28/Shrio%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/" class="article-date">
+	  <time datetime="2020-10-28T02:44:05.000Z" itemprop="datePublished">2020-10-28</time>
 	</a>
 </span>
         
@@ -350,35 +350,33 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/28/Shrio%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="Springboot启动时报错-If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath"><a href="#Springboot启动时报错-If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath" class="headerlink" title="Springboot启动时报错 If you want an embedded database (H2, HSQL or Derby), please put it on the classpath."></a>Springboot启动时报错 If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.</h2><p>产生这个错误的原因是springboot的自动配置，如果你没有配置DataSource就会导致这个错误</p>
-<p>版本一：解决方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)</span><span class="comment">//排除自动配置</span></span><br></pre></td></tr></table></figure>
+        <p>作为安全框架shiro更加便捷简单，相比与Spring Security来说。</p>
+<p>shiro主要使用的几个内部结构：</p>
+<p>Subject:主体，可以看到主体可以是任何可以与应用交互的“用户”;</p>
+<p>SecurityManager:相当于SpringMVC中的DispatcherServlet或者Struts2中的FilterDispatcher;是Shiro的心 脏;所有具体的交互都通过SecurityManager进行控制;它管理着所有Subject、且负责进行认证和授权、及会 话、缓存的管理。</p>
+<p>Authenticator:认证器，负责主体认证的。</p>
+<p>Authrizer:授权器，或者访问控制器，用来决定主体是否有权限进行相应的操作。</p>
+<p>Realm:可以有1个或多个Realm，可以认为是安全实体数据源，即用于获取安全实体的;可以是JDBC实现，也可 以是LDAP实现，或者内存实现等等;由用户提供;注意:Shiro不知道你的用户/权限存储在哪及以何种格式存储; 所以我们一般在应用中都需要实现自己的Realm;</p>
+<p>应用程序使用shiro过程</p>
+<p>应用代码通过Subject来进行认证和授权，Subject委托给SecurityManage ,Realm被注入到SecurityManage中，Realm相当于从数据库获取安全数据。</p>
+<p>﻿</p>
+<p>1基于ini运行模式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">  #模拟从数据库查询的用户 #数据格式 用户名=密码 zhangsan=123456 lisi=654321 //配置文件</span><br><span class="line"></span><br><span class="line"><span class="comment">//认证</span></span><br><span class="line"> <span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testLogin</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123; </span><br><span class="line"><span class="comment">//1.加载ini配置文件创建</span></span><br><span class="line">SecurityManager Factory&lt;SecurityManager&gt; factory = <span class="keyword">new</span> IniSecurityManagerFactory(<span class="string">&quot;classpath:shiro.ini&quot;</span>); </span><br><span class="line"><span class="comment">//2.获取securityManager</span></span><br><span class="line">SecurityManager securityManager = factory.getInstance(); </span><br><span class="line"><span class="comment">//3.将securityManager绑定到当前运行环境 </span></span><br><span class="line">SecurityUtils.setSecurityManager(securityManager); </span><br><span class="line"><span class="comment">//4.创建主体(此时的主体还为经过认证)</span></span><br><span class="line">Subject subject = SecurityUtils.getSubject();</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 模拟登录，和传统等不同的是需要使用主体进行登录</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//5.构造主体登录的凭证(即用户名/密码)</span></span><br><span class="line"><span class="comment">//第一个参数:登录用户名，第二个参数:登录密码</span></span><br><span class="line">UsernamePasswordToken upToken = <span class="keyword">new</span> UsernamePasswordToken(<span class="string">&quot;zhangsan&quot;</span>,<span class="string">&quot;123456&quot;</span>); </span><br><span class="line"><span class="comment">//6.主体登录</span></span><br><span class="line">subject.login(upToken);</span><br><span class="line"><span class="comment">//7.验证是否登录成功</span></span><br><span class="line">System.out.println(<span class="string">&quot;用户登录成功=&quot;</span>+subject.isAuthenticated());</span><br><span class="line"><span class="comment">//8.登录成功获取数据</span></span><br><span class="line"><span class="comment">//getPrincipal 获取登录成功的安全数据</span></span><br><span class="line">System.out.println(subject.getPrincipal());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//授权</span></span><br><span class="line"><span class="comment">//配置文件 [users] #数据格式 用户名=密码,角色1,角色2.. zhangsan=123456,role1,role2</span></span><br><span class="line">          [roles] #数据格式 角色名=权限1，权限2 role1=user:save,user:update</span><br><span class="line"><span class="comment">//7.用户认证成功之后才可以完成授权工作</span></span><br><span class="line"><span class="keyword">boolean</span> hasPerm = subject.isPermitted(<span class="string">&quot;user:save&quot;</span>);</span><br><span class="line">System.out.println(<span class="string">&quot;用户是否具有save权限=&quot;</span>+hasPerm);</span><br></pre></td></tr></table></figure>
 
-<p>关于exclude属性和DataSource问题</p>
-<p>exclude属性是@SpringBootApplication注解中的@EnableAutoConfiguration属性 排除某个类的自动配置</p>
-<p>在本例中，datasource没有配置所以启动时报错</p>
-<p>版本二：上述问题又出现了一次这次按版本一没有成功，在网上找了很多答案,</p>
-<p>其中的一篇:<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yourGod/p/9178515.html">https://www.cnblogs.com/yourGod/p/9178515.html</a></p>
-<p>按照上述的解决办法:)</p>
-<p>版本一这样之后还会报错：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Description:</span><br><span class="line">Field userRepository in com.wcyq.demo.service.impl.UserServiceImpl required a bean of type &#39;com.wcyq.demo.domain.UserRepository&#39; that could not be found.</span><br><span class="line">Action:</span><br><span class="line">Consider defining a bean of type &#39;com.wcyq.demo.domain.UserRepository&#39; in your configuration.</span><br><span class="line">Process finished with exit code 1</span><br></pre></td></tr></table></figure>
+<p>自定义realm 需要继承AuthorizingRealm父类 重写父类中的两个方法，</p>
+<p>doGetAuthorizationInfo :授权   从principals参数变量中获取已认证用户的信息，然后查询根据得到的id或者用户查询权限</p>
+<p> doGetAuthenticationInfo :认证  认证的主要目的，比较用户输入的用户名密码是否和数据库中的一致，首先要把传入的变量强转为UsernamePasswordToken以获取用户名和密码</p>
+<p>认证流程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.Subject的login方法登录</span><br><span class="line">2.所有的Subject都委托于Security Manager管理</span><br><span class="line">3.Security Manager委托给Authenticator认证 它才是真正的身份验证，shiro API的核心身份认证入口，可以自定义实现</span><br><span class="line">4.Authenticator委托给AuthenticationStrategy进行Realm身份验证</span><br><span class="line">5.把token传入Realm中，获取身份验证信息</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>这样dao就找不到了</p>
-<p>最后解决办法是application.yml文件配置改变一下</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">application:</span><br><span class="line">name: ihrm-company</span><br><span class="line">datasource:</span><br><span class="line">url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;ihrm?characterEncoding&#x3D;utf-8</span><br><span class="line">username: root</span><br><span class="line">password: root</span><br><span class="line">driverClassName: com.mysql.jdbc.Driver</span><br><span class="line">改为下面的 加了druid连接</span><br><span class="line">spring:</span><br><span class="line">application:</span><br><span class="line">name: ihrm-company</span><br><span class="line">datasource:</span><br><span class="line">druid:</span><br><span class="line">url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;ihrm?characterEncoding&#x3D;utf-8</span><br><span class="line">username: root</span><br><span class="line">password: root</span><br><span class="line">driverClassName: com.mysql.jdbc.Driver</span><br></pre></td></tr></table></figure>
-
-<p>是yml文件出现了问题，在此记录一下</p>
-<hr>
-<p>最后总结一下，导入了和数据库连接的依赖就要考虑你的datasource问题，如果需要就在配置文件中配置好，SpringBoot会自动导入；如果不需要，把exclude写上，或者依赖删掉。</p>
-
+<p>授权流程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 首先调用Subject.isPermitted&#x2F;hasRole接口，其会委托给SecurityManager，而SecurityManager接着会委托 给Authorizer;</span><br><span class="line">2. Authorizer是真正的授权者，如果我们调用如isPermitted(“user:view”)，其首先会通过PermissionResolver 把字符串转换成相应的Permission实例;</span><br><span class="line">3. 在进行授权之前，其会调用相应的Realm获取Subject相应的角色&#x2F;权限用于匹配传入的角色&#x2F;权限;</span><br><span class="line">4. Authorizer会判断Realm的角色&#x2F;权限是否和传入的匹配，如果有多个Realm，会委托给ModularRealmAuthorizer进行循环判断，如果匹配如isPermitted&#x2F;hasRole会返回true，否则返回false表示 授权失败。</span><br></pre></td></tr></table></figure>
       
     </div>
     <div class="article-footer">
@@ -387,7 +385,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/" title="关于SpringBoot启动报错DataSource问题" target="_blank" rel="external">http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/</a>
+      <a href="http://example.com/2020/10/28/Shrio%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/" title="Shrio安全框架入门" target="_blank" rel="external">http://example.com/2020/10/28/Shrio%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -434,12 +432,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%9F%90Service%E5%AE%9E%E7%8E%B0%E7%B1%BB%E6%8A%A5%E9%94%99%E5%8F%91%E7%8E%B0%E4%B8%A4%E4%B8%AA%E5%AE%9E%E4%BE%8B%E9%97%AE%E9%A2%98/" title="关于SpringBoot启动某Service实现类报错发现两个实例问题"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+      <a href="/2020/10/28/%E5%85%B3%E4%BA%8E%E6%8B%A6%E6%88%AA%E5%99%A8%E6%96%B9%E6%B3%95%E6%8A%9B%E5%BC%82%E5%B8%B8%E9%97%AE%E9%A2%98/" title="关于拦截器方法抛异常问题"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2020/10/21/%E5%85%B3%E4%BA%8ESpring%E7%BB%84%E4%BB%B6%E6%9C%AA%E5%8A%A0%E4%BA%BA%E5%88%B0%E5%AE%B9%E5%99%A8%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/" title="关于Spring组件未加人到容器报错问题"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/10/28/Shiro%E4%B8%8ESpringBoot%E6%95%B4%E5%90%88/" title="Shiro与SpringBoot整合"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

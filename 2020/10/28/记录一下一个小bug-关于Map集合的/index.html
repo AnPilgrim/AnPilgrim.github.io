@@ -17,18 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>书单 | Hexo</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="书单">
-<meta property="og:url" content="http://example.com/books/index.html">
+  <title>记录一下一个小bug 关于Map集合的 | Hexo</title>
+  <meta name="description" content="1234567891011121314151617181920212223@data&#x2F;&#x2F;lombokpublic class ProfileResult&amp;#123;&#x2F;&#x2F;成员变量&#x2F;&#x2F;...private Map&lt;String, Object&gt; map;&#x2F;&#x2F;构造方法...String menus &#x3D; &quot;&quot;;this.map.put(&quot;menus&quot;,m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录一下一个小bug 关于Map集合的">
+<meta property="og:url" content="http://example.com/2020/10/28/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%B0%8Fbug-%E5%85%B3%E4%BA%8EMap%E9%9B%86%E5%90%88%E7%9A%84/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1234567891011121314151617181920212223@data&#x2F;&#x2F;lombokpublic class ProfileResult&amp;#123;&#x2F;&#x2F;成员变量&#x2F;&#x2F;...private Map&lt;String, Object&gt; map;&#x2F;&#x2F;构造方法...String menus &#x3D; &quot;&quot;;this.map.put(&quot;menus&quot;,m">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-21T07:00:56.225Z">
-<meta property="article:modified_time" content="2020-10-21T05:23:31.270Z">
+<meta property="article:published_time" content="2020-10-28T02:44:55.000Z">
+<meta property="article:modified_time" content="2020-10-28T03:12:51.456Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/books/index.html">
+  <link rel="canonical" href="http://example.com/2020/10/28/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%B0%8Fbug-%E5%85%B3%E4%BA%8EMap%E9%9B%86%E5%90%88%E7%9A%84/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -45,7 +47,7 @@
 <meta name="generator" content="Hexo 5.2.0"></head>
 
 
-<body class="main-center no-sidebar" itemscope itemtype="http://schema.org/WebPage">
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
   <header class="header" itemscope itemtype="http://schema.org/WPHeader">
   <div class="slimContent">
     <div class="navbar-header">
@@ -321,40 +323,166 @@
 </aside>
 
   
-  <main class="main" role="main">
-  <article class="article article-links article-type-list" itemscope="">
-  <header class="article-header">
-    <h1 itemprop="title">书单</h1>
-    <p class="text-muted">Personal collection of books recommended to everyone <a href="https://www.douban.com/people//" target="_blank">[Douban]</a></p>
-    <nav role="navigation" id="nav-main" class="okayNav">
-      <ul id="tabs">
-        <li><a id="reading-tab" href="javascript:show('reading')" rel="external">在读<span id="reading-total"></span></a></li>
-        <li><a id="wish-tab" href="javascript:show('wish')" rel="external">想读<span id="wish-total"></span></a></li>
-        <li><a id="read-tab" href="javascript:show('read')" rel="external">已读<span id="read-total"></span></a></li>
-      </ul>
-    </nav>
-  </header>
-  <div class="article-body">
-    <div id="loading">
-      <p>正在加载...</p>
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-记录一下一个小bug-关于Map集合的" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      记录一下一个小bug 关于Map集合的
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/10/28/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%B0%8Fbug-%E5%85%B3%E4%BA%8EMap%E9%9B%86%E5%90%88%E7%9A%84/" class="article-date">
+	  <time datetime="2020-10-28T02:44:55.000Z" itemprop="datePublished">2020-10-28</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/28/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%B0%8Fbug-%E5%85%B3%E4%BA%8EMap%E9%9B%86%E5%90%88%E7%9A%84/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
     </div>
-    <div id="douban">
-      <div id="collections">
-        <div id="reading" class="row hide">
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@data</span><span class="comment">//lombok</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProfileResult</span></span>&#123;</span><br><span class="line"><span class="comment">//成员变量</span></span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="keyword">private</span> Map&lt;String, Object&gt; map;</span><br><span class="line"><span class="comment">//构造方法...</span></span><br><span class="line">String menus = <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>.map.put(<span class="string">&quot;menus&quot;</span>,menus);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//-----------------------------</span></span><br><span class="line"><span class="meta">@data</span><span class="comment">//lombok</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProfileResult</span></span>&#123;</span><br><span class="line"><span class="comment">//成员变量</span></span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="keyword">private</span> Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"><span class="comment">//构造方法...</span></span><br><span class="line">String menus = <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">this</span>.map.put(<span class="string">&quot;menus&quot;</span>,menus);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这两种写法，第一种会报错；因为map没有指向Map对象，报空指针异常；而第二种就在定义变量时赋值再调用方法时不会报异常。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2020/10/28/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%B0%8Fbug-%E5%85%B3%E4%BA%8EMap%E9%9B%86%E5%90%88%E7%9A%84/" title="记录一下一个小bug 关于Map集合的" target="_blank" rel="external">http://example.com/2020/10/28/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%B0%8Fbug-%E5%85%B3%E4%BA%8EMap%E9%9B%86%E5%90%88%E7%9A%84/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">昵称</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2020/10/28/%E5%85%B3%E4%BA%8E%E5%90%91%E6%95%B0%E6%8D%AE%E5%BA%93%E6%B7%BB%E5%8A%A0%E4%BF%A1%E6%81%AF%E6%97%B6%E6%9C%AA%E8%AE%BE%E7%BD%AEid%E6%8A%A5%E9%94%99/" title="关于向数据库添加信息时未设置id报错"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2020/10/28/%E5%85%B3%E4%BA%8E%E6%8B%A6%E6%88%AA%E5%99%A8%E6%96%B9%E6%B3%95%E6%8A%9B%E5%BC%82%E5%B8%B8%E9%97%AE%E9%A2%98/" title="关于拦截器方法抛异常问题"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="clearfix"></div>
-        <div id="wish" class="row hide">
-        </div>
-        <div class="clearfix"></div>
-        <div id="read" class="row hide">
-        </div>
-        <div class="clearfix"></div>
       </div>
     </div>
   </div>
-</article>
-
-  
+</div>
 
 
 
@@ -418,155 +546,37 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
-   <script>
-function show(id) {
-  document.getElementById('reading').classList.remove('active');
-  document.getElementById('read').classList.remove('active');
-  document.getElementById('wish').classList.remove('active');
-  document.getElementById('reading').classList.add('hide');
-  document.getElementById('read').classList.add('hide');
-  document.getElementById('wish').classList.add('hide');
 
-  var ele = document.getElementById(id);
-  ele.classList.remove('hide');
-  ele.classList.add('active');
-
-  document.getElementById('reading-tab').classList.remove('active');
-  document.getElementById('read-tab').classList.remove('active');
-  document.getElementById('wish-tab').classList.remove('active');
-  document.getElementById(id + '-tab').classList.add('active');
-};
-
-(function() {
-  var read = [];
-  var wish = [];
-  var reading = [];
-
-  // XHR 获取豆瓣书单数据，数据格式json
-  // function loadDoubanCollections() {
-  //   var xhr = new XMLHttpRequest();
-  //   // https://api.douban.com/v2/book/user/:name/collections
-  //   xhr.open('GET', 'http://7b1fa0.com1.z0.glb.clouddn.com/douban-20170429-1.json', true);
-
-  //   xhr.onload = function() {
-  //     // console.log(this);
-  //     if (this.status >= 200 && this.status < 300) {
-  //       var res = JSON.parse(this.response);
-  //       searchData = res;
-  //       onLoadDouban(searchData);
-  //     } else {
-  //       console.error(this.statusText);
-  //     }
-  //   };
-
-  //   xhr.onerror = function() {
-  //     console.error(this.statusText);
-  //   };
-
-  //   xhr.send();
-  // }
-  
-  // Ajax 获取豆瓣书单数据，数据格式json
-  function loadDoubanCollections() {
-    var _this = this;
-    // https://api.douban.com/v2/book/user/:name/collections?start=0&count=100
-    var url = "https://api.douban.com/v2/book/user//collections"
-    $.ajax({
-      url: url,
-      type: 'GET',
-      data: {
-        start:0, // 从哪一条记录开始
-        count:100 // 获取豆瓣书单数据条数
-      },
-      dataType: 'JSONP', //here
-      success: function(data) {
-        // console.log(data);
-        onLoadDouban(data);
-      }
-    });
-  }
-
-  function onLoadDouban(data) {
-    if (data['count'] > 0) {
-      for (var i = 0; i < data['collections'].length; ++i) {
-        resolveBook(data['collections'][i]);
-      }
-    }
-    render();
-  }
-
-  function resolveBook(book) {
-    if (book['status'] == 'read') {
-      read.push(book);
-    }
-    if (book['status'] == 'wish') {
-      wish.push(book);
-    }
-    if (book['status'] == 'reading') {
-      reading.push(book);
-    }
-  }
-
-  function render() {
-    renderList(read, 'read');
-    renderList(wish, 'wish');
-    renderList(reading, 'reading');
-
-    document.getElementById('reading-total').innerHTML = '(' + reading.length + ')';
-    document.getElementById('read-total').innerHTML = '(' + read.length + ')';
-    document.getElementById('wish-total').innerHTML = '(' + wish.length + ')';
-
-    show('reading');
-    document.getElementById('loading').classList.add('hide');
-  }
-
-  function renderList(list, id) {
-    for (var i = 0; i < list.length; ++i) {
-      var h = renderBook(list[i]);
-      if (i > 0 && i % 4 == 3) {
-        h += '<div class="clearfix"></div>';
-      }
-      document.getElementById(id).innerHTML = document.getElementById(id).innerHTML + h;
-    }
-  }
-
-  function renderBook(book) {
-    var html = '<div class="col-sm-6 col-md-6"><div class="panel panel-default hover-grow"><div class="panel-body">'
-      + '<div class="media media-middle book book-' + book['status'] + '" itemscope itemtype="http://schema.org/Book">' 
-      + '<div class="media-left"><a class="media-middle" target="_blank" href="' + book.book.alt + '" rel="external nofollow noopener noreferrer"><img class="media-object" src="' + book.book.image + '" itemprop="image"/></a></div><div class="media-body">' 
-      + '<h3 class="media-heading" itemprop="name"><a target="_blank" href="' + book.book.alt + '" rel="external nofollow noopener noreferrer">' + book.book.title + '</a></h3>' 
-      + '<p class="meta text-nowrap-1x"><small itemprop="author">' + book.book.author[0] + '</small> / <small itemprop="datePublished">' + book.book.pubdate + '</small> / <small itemprop="ratingValue">' + book.book.rating.average + '分</small></p>' 
-      + '<p class="meta text-nowrap-1x">' + book.updated.substring(0, 10) + resolveRating(book.rating) + resolveTags(book.tags) + '</p>' 
-      + '<div class="comments text-muted text-nowrap-3x" itemprop="comment">' + (book.comment ? book.comment : '') + '</div>' 
-      + '</div>' + '</div>' + '</div>' + '</div>' + '</div>';
-    return html;
-  }
-
-  function resolveRating(rating) {
-    if (rating && rating.value) {
-      return ' / ' + rating.value + '星';
-    }
-    return '';
-  }
-
-  function resolveTags(tags) {
-    if (tags && tags.length > 0) {
-      var html = ' / ';
-      for (var i = 0; i < tags.length; ++i) {
-        html += tags[i] + ' ';
-      }
-      return html;
-    }
-    return '';
-  }
-
-  setTimeout(function() {
-    loadDoubanCollections();
-  }, 0)
-})()
-</script>
+   
 
 
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 

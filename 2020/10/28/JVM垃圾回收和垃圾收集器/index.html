@@ -17,20 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>关于SpringBoot启动报错DataSource问题 | Hexo</title>
-  <meta name="description" content="Springboot启动时报错 If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.产生这个错误的原因是springboot的自动配置，如果你没有配置DataSource就会导致这个错误 版本一：解决方法 1@SpringBootApplication(exclude &#x3D; Data">
+  <title>JVM垃圾回收和垃圾收集器 | Hexo</title>
+  <meta name="description" content="java与C语音不同，C语音需要手动垃圾回收，而java只需要关心内存申请，不需要关心垃圾回收。 算法：：垃圾回收算法：引用计数法、标记清除法、标记压缩法、复制算法、分代算法等。引用计数法：每个对象都有一个计数器，每当对象被引用时就+1，不被引用就-1，最后都不引用的时候，计数器为0，这时如果进行垃圾回收，此对象会被回收掉。优点：实时性好，不用等内存满了再清理，计数器为0可以直接回收掉；缺点：更新">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于SpringBoot启动报错DataSource问题">
-<meta property="og:url" content="http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="JVM垃圾回收和垃圾收集器">
+<meta property="og:url" content="http://example.com/2020/10/28/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Springboot启动时报错 If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.产生这个错误的原因是springboot的自动配置，如果你没有配置DataSource就会导致这个错误 版本一：解决方法 1@SpringBootApplication(exclude &#x3D; Data">
+<meta property="og:description" content="java与C语音不同，C语音需要手动垃圾回收，而java只需要关心内存申请，不需要关心垃圾回收。 算法：：垃圾回收算法：引用计数法、标记清除法、标记压缩法、复制算法、分代算法等。引用计数法：每个对象都有一个计数器，每当对象被引用时就+1，不被引用就-1，最后都不引用的时候，计数器为0，这时如果进行垃圾回收，此对象会被回收掉。优点：实时性好，不用等内存满了再清理，计数器为0可以直接回收掉；缺点：更新">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-24T09:07:05.000Z">
-<meta property="article:modified_time" content="2020-10-24T09:54:44.642Z">
+<meta property="article:published_time" content="2020-10-28T02:47:10.000Z">
+<meta property="article:modified_time" content="2020-10-28T03:07:26.962Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/index.html">
+  <link rel="canonical" href="http://example.com/2020/10/28/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -326,14 +326,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-关于SpringBoot启动报错DataSource问题" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-JVM垃圾回收和垃圾收集器" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      关于SpringBoot启动报错DataSource问题
+      JVM垃圾回收和垃圾收集器
     </h1>
   
 
@@ -341,8 +341,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/" class="article-date">
-	  <time datetime="2020-10-24T09:07:05.000Z" itemprop="datePublished">2020-10-24</time>
+	<a href="/2020/10/28/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" class="article-date">
+	  <time datetime="2020-10-28T02:47:10.000Z" itemprop="datePublished">2020-10-28</time>
 	</a>
 </span>
         
@@ -350,34 +350,42 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/28/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="Springboot启动时报错-If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath"><a href="#Springboot启动时报错-If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath" class="headerlink" title="Springboot启动时报错 If you want an embedded database (H2, HSQL or Derby), please put it on the classpath."></a>Springboot启动时报错 If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.</h2><p>产生这个错误的原因是springboot的自动配置，如果你没有配置DataSource就会导致这个错误</p>
-<p>版本一：解决方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)</span><span class="comment">//排除自动配置</span></span><br></pre></td></tr></table></figure>
+        <p>java与C语音不同，C语音需要手动垃圾回收，而java只需要关心内存申请，不需要关心垃圾回收。</p>
+<h4 id="算法：：垃圾回收算法：引用计数法、标记清除法、标记压缩法、复制算法、分代算法等。"><a href="#算法：：垃圾回收算法：引用计数法、标记清除法、标记压缩法、复制算法、分代算法等。" class="headerlink" title="算法：：垃圾回收算法：引用计数法、标记清除法、标记压缩法、复制算法、分代算法等。"></a>算法：：垃圾回收算法：引用计数法、标记清除法、标记压缩法、复制算法、分代算法等。</h4><p>引用计数法：每个对象都有一个计数器，每当对象被引用时就+1，不被引用就-1，最后都不引用的时候，计数器为0，这时如果进行垃圾回收，此对象会被回收掉。优点：实时性好，不用等内存满了再清理，计数器为0可以直接回收掉；缺点：更新数据会有一点时间开销，浪费cpu资源，最大的问题是无法解决循环引用问题。</p>
+<p>标记清除法：从根节点开始标记引用的对象，未被标记的就回收掉，即使两个对象循环引用但是从根节点标记引用的对象没有这两个，所以会被回收掉。解决了循环引用无法回收的问题，这是优点，缺点是效率低下，每次都要遍历所有对象，对其进行标记和清除，并且清理后的内存碎片化严重</p>
+<p>标记压缩法：标记清除法的改进，标记相同，清除时，先将存活的对象压缩到内存一端，然后清理掉其他对象，优点是解决了碎片化问题，但是多了一步移动对象的操作，效率也会低下。</p>
+<p>复制算法：复制算法的核心就是，将原有的内存空间一分为二，每次只用其中的一块，在垃圾回收时，将正在使用的对象复制到另一个内存空间中，然后将该内存空间清空，交换两个内<br>存的角色，完成垃圾的回收。值得一提的是jvm中的年轻代两个survivor区就是用的这样的算法。优点是垃圾对象多时，效率较高，内存无碎片化。缺点是垃圾对象少时，不适用，比如老年代，再就是一次只能用一半的内存空间内存使用率低。</p>
+<p>分代算法：根据回收对象的特点进行选择，在jvm中，年轻代适合使用复<br>制算法，老年代适合使用标记清除或标记压缩算法。</p>
+<h4 id="收集器：包括：串行垃圾收集器、并行垃圾收集器、CMS（并发）垃圾收集器、G1垃圾收集器。"><a href="#收集器：包括：串行垃圾收集器、并行垃圾收集器、CMS（并发）垃圾收集器、G1垃圾收集器。" class="headerlink" title="收集器：包括：串行垃圾收集器、并行垃圾收集器、CMS（并发）垃圾收集器、G1垃圾收集器。"></a>收集器：包括：串行垃圾收集器、并行垃圾收集器、CMS（并发）垃圾收集器、G1垃圾收集器。</h4><p>串行垃圾收集器：是指使用单线程进行垃圾回收，工作时只有一个线程，其他程序都要暂停，这种现象称为STW（Stop-The-World），对于交互性较强的应用而言，这种垃圾收集器是不能够接受的。一般在Javaweb应用中是不会采用该收集器的。因为交互性的应用暂停服务会影响使用效果。</p>
+<p>并行垃圾收集器：将单线程改为了多线程进行垃圾回收，这样可以缩短垃圾回收的时间。但是还是要出现STW现象</p>
+<p>①ParNew垃圾收集器：只是单纯的把单线程改为多线程。</p>
+<p>②ParallelGC垃圾收集器：新增了两个和系统吞吐量相关的参数，使得其使用起来更加的灵活和高效。</p>
+<p>CMS垃圾收集器：CMS以获取最小停顿时间为目的，这样就可以用在交互性的应用上。因为要获取最小停顿时间，所以对执行过程进行细化，比较复杂，下面是运行过程：</p>
+<ol>
+<li>初始化标记(CMS-initial-mark) ,标记root，会导致stw；</li>
+<li>并发标记(CMS-concurrent-mark)，与用户线程同时运行；</li>
+<li>预清理（CMS-concurrent-preclean），与用户线程同时运行；</li>
+<li>重新标记(CMS-remark) ，会导致stw；</li>
+<li>并发清除(CMS-concurrent-sweep)，与用户线程同时运行；</li>
+<li>调整堆大小，设置CMS在清理之后进行内存压缩，目的是清理内存中的碎片；</li>
+<li>并发重置状态等待下次CMS的触发(CMS-concurrent-reset)，与用户线程同时运行；</li>
+</ol>
+<p>G1垃圾收集器：G1的设计原则就是简化JVM性能调优，开发人员只需要简单的三步即可完成调优：第一步，开启G1垃圾收集器第二步，设置堆的最大内存第三步，设置最大的停顿时间。</p>
+<p>G1中提供了三种模式垃圾回收模式，Young GC、Mixed GC 和 Full GC，在不同的条件<br>下被触发。</p>
+<p>G1垃圾收集器的设计思想：与其他收集器相比，G1的最大区别是它摒弃了年轻代、老年代的物理划分，采用将堆内存分为若干个区域，这些区域包含了逻辑上的老年区，年轻区，还有一种特殊区域Humongous区，它主要装的是巨型对象。</p>
+<p>在G1划分的区域中，年轻代的垃圾收集依然采用暂停所有应用线程的方式，将存活对象<br>拷贝到老年代或者Survivor空间，G1收集器通过将对象从一个区域复制到另外一个区<br>域，完成了清理工作。这就意味着，在正常的处理过程中，G1完成了堆的压缩（至少是部分堆的压缩），这样也就不会有cms内存碎片问题的存在了。</p>
+<p>Young GC：主要对Eden区进行GC，在Eden区快耗尽时触发，存活数据移动到Survivor区，如果Survivor不够，则有部分移到年老代。Eden区数据为空时，停止GC。</p>
+<p>Remembered Set（已记忆集合）其作用是跟踪指向某个堆内的对象引用。为找到年轻代的根对象采用这种方法，不然将年老代遍历一遍会很浪费时间。</p>
+<p>Mixed GC：回收整个年轻代和部分年老代。触发是由参数 -XX:InitiatingHeapOccupancyPercent=n 决定。默认：45%，该参数的意思是：当老年代大小占整个堆大小百分比达到该阀值时触发。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">‐XX:+PrintGC 输出GC日志</span><br><span class="line">‐XX:+PrintGCDetails 输出GC的详细日志</span><br><span class="line">‐XX:+PrintGCTimeStamps 输出GC的时间戳（以基准时间的形式）</span><br><span class="line">‐XX:+PrintGCDateStamps 输出GC的时间戳（以日期的形式，如 2013‐05‐</span><br><span class="line">04T21:53:59.234+0800）</span><br><span class="line">‐XX:+PrintHeapAtGC 在进行GC的前后打印出堆的信息</span><br><span class="line">‐Xloggc:..&#x2F;logs&#x2F;gc.log 日志文件的输出路径</span><br><span class="line"></span><br><span class="line">测试：</span><br><span class="line">‐XX:+UseG1GC ‐XX:MaxGCPauseMillis&#x3D;100 ‐Xmx256m ‐XX:+PrintGCDetails ‐</span><br><span class="line">XX:+PrintGCTimeStamps ‐XX:+PrintGCDateStamps ‐XX:+PrintHeapAtGC ‐</span><br><span class="line">Xloggc:F:&#x2F;&#x2F;test&#x2F;&#x2F;gc.log</span><br></pre></td></tr></table></figure>
 
-<p>关于exclude属性和DataSource问题</p>
-<p>exclude属性是@SpringBootApplication注解中的@EnableAutoConfiguration属性 排除某个类的自动配置</p>
-<p>在本例中，datasource没有配置所以启动时报错</p>
-<p>版本二：上述问题又出现了一次这次按版本一没有成功，在网上找了很多答案,</p>
-<p>其中的一篇:<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yourGod/p/9178515.html">https://www.cnblogs.com/yourGod/p/9178515.html</a></p>
-<p>按照上述的解决办法:)</p>
-<p>版本一这样之后还会报错：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Description:</span><br><span class="line">Field userRepository in com.wcyq.demo.service.impl.UserServiceImpl required a bean of type &#39;com.wcyq.demo.domain.UserRepository&#39; that could not be found.</span><br><span class="line">Action:</span><br><span class="line">Consider defining a bean of type &#39;com.wcyq.demo.domain.UserRepository&#39; in your configuration.</span><br><span class="line">Process finished with exit code 1</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>这样dao就找不到了</p>
-<p>最后解决办法是application.yml文件配置改变一下</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">application:</span><br><span class="line">name: ihrm-company</span><br><span class="line">datasource:</span><br><span class="line">url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;ihrm?characterEncoding&#x3D;utf-8</span><br><span class="line">username: root</span><br><span class="line">password: root</span><br><span class="line">driverClassName: com.mysql.jdbc.Driver</span><br><span class="line">改为下面的 加了druid连接</span><br><span class="line">spring:</span><br><span class="line">application:</span><br><span class="line">name: ihrm-company</span><br><span class="line">datasource:</span><br><span class="line">druid:</span><br><span class="line">url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;ihrm?characterEncoding&#x3D;utf-8</span><br><span class="line">username: root</span><br><span class="line">password: root</span><br><span class="line">driverClassName: com.mysql.jdbc.Driver</span><br></pre></td></tr></table></figure>
-
-<p>是yml文件出现了问题，在此记录一下</p>
-<hr>
-<p>最后总结一下，导入了和数据库连接的依赖就要考虑你的datasource问题，如果需要就在配置文件中配置好，SpringBoot会自动导入；如果不需要，把exclude写上，或者依赖删掉。</p>
+<p>最后介绍一个GC日志查看的网址：GC Easy是一款在线的可视化工具，易用、功能强大，网站：<a target="_blank" rel="noopener" href="http://gceasy.io/">http://gceasy.io/</a></p>
 
       
     </div>
@@ -387,7 +395,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/" title="关于SpringBoot启动报错DataSource问题" target="_blank" rel="external">http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/</a>
+      <a href="http://example.com/2020/10/28/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" title="JVM垃圾回收和垃圾收集器" target="_blank" rel="external">http://example.com/2020/10/28/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -434,12 +442,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%9F%90Service%E5%AE%9E%E7%8E%B0%E7%B1%BB%E6%8A%A5%E9%94%99%E5%8F%91%E7%8E%B0%E4%B8%A4%E4%B8%AA%E5%AE%9E%E4%BE%8B%E9%97%AE%E9%A2%98/" title="关于SpringBoot启动某Service实现类报错发现两个实例问题"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+      <a href="/2020/10/28/JVM%E5%9F%BA%E6%9C%AC%E5%8F%82%E6%95%B0%E5%91%BD%E4%BB%A4/" title="JVM基本参数命令"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2020/10/21/%E5%85%B3%E4%BA%8ESpring%E7%BB%84%E4%BB%B6%E6%9C%AA%E5%8A%A0%E4%BA%BA%E5%88%B0%E5%AE%B9%E5%99%A8%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/" title="关于Spring组件未加人到容器报错问题"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/10/28/Tomcat8%E4%BC%98%E5%8C%96%E5%85%A5%E9%97%A8/" title="Tomcat8优化入门"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

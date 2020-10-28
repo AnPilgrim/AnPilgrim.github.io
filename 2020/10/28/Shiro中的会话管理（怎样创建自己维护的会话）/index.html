@@ -17,20 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>关于SpringBoot启动报错DataSource问题 | Hexo</title>
-  <meta name="description" content="Springboot启动时报错 If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.产生这个错误的原因是springboot的自动配置，如果你没有配置DataSource就会导致这个错误 版本一：解决方法 1@SpringBootApplication(exclude &#x3D; Data">
+  <title>Shiro中的会话管理（怎样创建自己维护的会话） | Hexo</title>
+  <meta name="description" content="shiro提供了三个默认实现：  DefaultSessionManager:用于JavaSE环境 ServletContainerSessionManager:用于Web环境，直接使用servlet容器的会话。 DefaultWebSessionManager:用于web环境，自己维护会话(自己维护着会话，直接废弃了Servlet容器的会话管理)。  在web程序中，通过shiro的Subjec">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于SpringBoot启动报错DataSource问题">
-<meta property="og:url" content="http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="Shiro中的会话管理（怎样创建自己维护的会话）">
+<meta property="og:url" content="http://example.com/2020/10/28/Shiro%E4%B8%AD%E7%9A%84%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86%EF%BC%88%E6%80%8E%E6%A0%B7%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BC%9A%E8%AF%9D%EF%BC%89/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Springboot启动时报错 If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.产生这个错误的原因是springboot的自动配置，如果你没有配置DataSource就会导致这个错误 版本一：解决方法 1@SpringBootApplication(exclude &#x3D; Data">
+<meta property="og:description" content="shiro提供了三个默认实现：  DefaultSessionManager:用于JavaSE环境 ServletContainerSessionManager:用于Web环境，直接使用servlet容器的会话。 DefaultWebSessionManager:用于web环境，自己维护会话(自己维护着会话，直接废弃了Servlet容器的会话管理)。  在web程序中，通过shiro的Subjec">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-24T09:07:05.000Z">
-<meta property="article:modified_time" content="2020-10-24T09:54:44.642Z">
+<meta property="article:published_time" content="2020-10-28T02:43:40.000Z">
+<meta property="article:modified_time" content="2020-10-28T03:01:13.203Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/index.html">
+  <link rel="canonical" href="http://example.com/2020/10/28/Shiro%E4%B8%AD%E7%9A%84%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86%EF%BC%88%E6%80%8E%E6%A0%B7%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BC%9A%E8%AF%9D%EF%BC%89/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -326,14 +326,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-关于SpringBoot启动报错DataSource问题" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Shiro中的会话管理（怎样创建自己维护的会话）" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      关于SpringBoot启动报错DataSource问题
+      Shiro中的会话管理（怎样创建自己维护的会话）
     </h1>
   
 
@@ -341,8 +341,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/" class="article-date">
-	  <time datetime="2020-10-24T09:07:05.000Z" itemprop="datePublished">2020-10-24</time>
+	<a href="/2020/10/28/Shiro%E4%B8%AD%E7%9A%84%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86%EF%BC%88%E6%80%8E%E6%A0%B7%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BC%9A%E8%AF%9D%EF%BC%89/" class="article-date">
+	  <time datetime="2020-10-28T02:43:40.000Z" itemprop="datePublished">2020-10-28</time>
 	</a>
 </span>
         
@@ -350,34 +350,31 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/28/Shiro%E4%B8%AD%E7%9A%84%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86%EF%BC%88%E6%80%8E%E6%A0%B7%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BC%9A%E8%AF%9D%EF%BC%89/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="Springboot启动时报错-If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath"><a href="#Springboot启动时报错-If-you-want-an-embedded-database-H2-HSQL-or-Derby-please-put-it-on-the-classpath" class="headerlink" title="Springboot启动时报错 If you want an embedded database (H2, HSQL or Derby), please put it on the classpath."></a>Springboot启动时报错 If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.</h2><p>产生这个错误的原因是springboot的自动配置，如果你没有配置DataSource就会导致这个错误</p>
-<p>版本一：解决方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)</span><span class="comment">//排除自动配置</span></span><br></pre></td></tr></table></figure>
+        <p>shiro提供了三个默认实现：</p>
+<ol>
+<li>DefaultSessionManager:用于JavaSE环境</li>
+<li>ServletContainerSessionManager:用于Web环境，直接使用servlet容器的会话。</li>
+<li>DefaultWebSessionManager:用于web环境，自己维护会话(自己维护着会话，直接废弃了Servlet容器的会话管理)。</li>
+</ol>
+<p>在web程序中，通过shiro的Subject.login()方法登录成功后，用户的认证信息实际上是保存在HttpSession中的</p>
+<p>Shiro结合redis的统一会话管理</p>
+<p>构建环境</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//导入依赖</span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.crazycake<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>shiro-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>关于exclude属性和DataSource问题</p>
-<p>exclude属性是@SpringBootApplication注解中的@EnableAutoConfiguration属性 排除某个类的自动配置</p>
-<p>在本例中，datasource没有配置所以启动时报错</p>
-<p>版本二：上述问题又出现了一次这次按版本一没有成功，在网上找了很多答案,</p>
-<p>其中的一篇:<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yourGod/p/9178515.html">https://www.cnblogs.com/yourGod/p/9178515.html</a></p>
-<p>按照上述的解决办法:)</p>
-<p>版本一这样之后还会报错：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Description:</span><br><span class="line">Field userRepository in com.wcyq.demo.service.impl.UserServiceImpl required a bean of type &#39;com.wcyq.demo.domain.UserRepository&#39; that could not be found.</span><br><span class="line">Action:</span><br><span class="line">Consider defining a bean of type &#39;com.wcyq.demo.domain.UserRepository&#39; in your configuration.</span><br><span class="line">Process finished with exit code 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">//在springboot配置文件中添加redis配置</span></span><br><span class="line"> <span class="attr">redis:</span></span><br><span class="line">   <span class="attr">host:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> </span><br><span class="line">   <span class="attr">port:</span> <span class="number">6379</span></span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>这样dao就找不到了</p>
-<p>最后解决办法是application.yml文件配置改变一下</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">application:</span><br><span class="line">name: ihrm-company</span><br><span class="line">datasource:</span><br><span class="line">url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;ihrm?characterEncoding&#x3D;utf-8</span><br><span class="line">username: root</span><br><span class="line">password: root</span><br><span class="line">driverClassName: com.mysql.jdbc.Driver</span><br><span class="line">改为下面的 加了druid连接</span><br><span class="line">spring:</span><br><span class="line">application:</span><br><span class="line">name: ihrm-company</span><br><span class="line">datasource:</span><br><span class="line">druid:</span><br><span class="line">url: jdbc:mysql:&#x2F;&#x2F;localhost:3306&#x2F;ihrm?characterEncoding&#x3D;utf-8</span><br><span class="line">username: root</span><br><span class="line">password: root</span><br><span class="line">driverClassName: com.mysql.jdbc.Driver</span><br></pre></td></tr></table></figure>
+<p>自定义shiro会话管理器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 自定义的sessionManager 继承DefaultWebSessionManager</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomSessionManager</span> <span class="keyword">extends</span> <span class="title">DefaultWebSessionManager</span> </span>&#123;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 头信息中具有sessionid</span></span><br><span class="line"><span class="comment">* 请求头:Authorization: sessionid *</span></span><br><span class="line"><span class="comment">* 指定sessionId的获取方式</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Serializable <span class="title">getSessionId</span><span class="params">(ServletRequest request, ServletResponse</span></span></span><br><span class="line"><span class="function"><span class="params">    response)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//获取请求头Authorization中的数据</span></span><br><span class="line">        String id = WebUtils.toHttp(request).getHeader(<span class="string">&quot;Authorization&quot;</span>); </span><br><span class="line">        <span class="keyword">if</span>(StringUtils.isEmpty(id)) &#123;</span><br><span class="line">            <span class="comment">//如果没有携带，生成新的sessionId</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">super</span>.getSessionId(request,response); </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//返回sessionId; </span></span><br><span class="line">            request.setAttribute(ShiroHttpServletRequest.REFERENCED_SESSION_ID_SOURCE,<span class="string">&quot;header&quot;</span>);</span><br><span class="line">            request.setAttribute(ShiroHttpServletRequest.REFERENCED_SESSION_ID, id);</span><br><span class="line">            request.setAttribute(ShiroHttpServletRequest.REFERENCED_SESSION_ID_IS_VALID, Boolean.TRUE);</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> id; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>是yml文件出现了问题，在此记录一下</p>
-<hr>
-<p>最后总结一下，导入了和数据库连接的依赖就要考虑你的datasource问题，如果需要就在配置文件中配置好，SpringBoot会自动导入；如果不需要，把exclude写上，或者依赖删掉。</p>
+<p>配置Shiro基于redis的会话管理</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 配置shiro的RedisManager，通过shiro-redis包提供的RedisManager统一对redis操作 </span><br><span class="line"><span class="meta">@Value(&quot;$&#123;spring.redis.host&#125;&quot;)</span> <span class="keyword">private</span> String host;</span><br><span class="line"><span class="meta">@Value(&quot;$&#123;spring.redis.port&#125;&quot;)</span> <span class="keyword">private</span> <span class="keyword">int</span> port;</span><br><span class="line"><span class="comment">//配置shiro redisManager</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> RedisManager <span class="title">redisManager</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    RedisManager redisManager = <span class="keyword">new</span> RedisManager(); </span><br><span class="line">    redisManager.setHost(host); </span><br><span class="line">    redisManager.setPort(port);</span><br><span class="line"><span class="keyword">return</span> redisManager;</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">2.</span> Shiro内部有自己的本地缓存机制，为了更加统一方便管理，全部替换redis实现</span><br><span class="line"> <span class="comment">//配置Shiro的缓存管理器</span></span><br><span class="line"><span class="comment">//使用redis实现</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> RedisCacheManager <span class="title">cacheManager</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    RedisCacheManager redisCacheManager = <span class="keyword">new</span> RedisCacheManager();    </span><br><span class="line">    redisCacheManager.setRedisManager(redisManager());</span><br><span class="line">    <span class="keyword">return</span> redisCacheManager;</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">3.</span> 配置SessionDao，使用shiro-redis实现的基于redis的sessionDao</span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">* RedisSessionDAO shiro sessionDao层的实现 通过redis </span></span><br><span class="line"><span class="comment">* 使用的是shiro-redis开源插件</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> RedisSessionDAO <span class="title">redisSessionDAO</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    RedisSessionDAO redisSessionDAO = <span class="keyword">new</span> RedisSessionDAO(); </span><br><span class="line">    redisSessionDAO.setRedisManager(redisManager()); </span><br><span class="line">    <span class="keyword">return</span> redisSessionDAO;</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">4.</span> 配置会话管理器，指定sessionDao的依赖关系</span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">* 3.会话管理器 */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> DefaultWebSessionManager <span class="title">sessionManager</span><span class="params">()</span> </span>&#123; </span><br><span class="line">    CustomSessionManager sessionManager = <span class="keyword">new</span>   CustomSessionManager();      </span><br><span class="line">    sessionManager.setSessionDAO(redisSessionDAO());</span><br><span class="line">    <span class="keyword">return</span> sessionManager;</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">5.</span> 统一交给SecurityManager管理</span><br><span class="line"> <span class="comment">//配置安全管理器</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> SecurityManager <span class="title">securityManager</span><span class="params">(CustomRealm realm)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//使用默认的安全管理器</span></span><br><span class="line">    DefaultWebSecurityManager securityManager = <span class="keyword">new</span> DefaultWebSecurityManager(realm);</span><br><span class="line">    <span class="comment">// 自定义session管理 使用redis </span></span><br><span class="line">    securityManager.setSessionManager(sessionManager()); </span><br><span class="line">    <span class="comment">// 自定义缓存实现 使用redis </span></span><br><span class="line">    securityManager.setCacheManager(cacheManager()); </span><br><span class="line">    <span class="comment">//将自定义的realm交给安全管理器统一调度管理 </span></span><br><span class="line">    securityManager.setRealm(realm);</span><br><span class="line">    <span class="keyword">return</span> securityManager;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -387,7 +384,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/" title="关于SpringBoot启动报错DataSource问题" target="_blank" rel="external">http://example.com/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%8A%A5%E9%94%99DataSource%E9%97%AE%E9%A2%98/</a>
+      <a href="http://example.com/2020/10/28/Shiro%E4%B8%AD%E7%9A%84%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86%EF%BC%88%E6%80%8E%E6%A0%B7%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BC%9A%E8%AF%9D%EF%BC%89/" title="Shiro中的会话管理（怎样创建自己维护的会话）" target="_blank" rel="external">http://example.com/2020/10/28/Shiro%E4%B8%AD%E7%9A%84%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86%EF%BC%88%E6%80%8E%E6%A0%B7%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BC%9A%E8%AF%9D%EF%BC%89/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -434,12 +431,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2020/10/24/%E5%85%B3%E4%BA%8ESpringBoot%E5%90%AF%E5%8A%A8%E6%9F%90Service%E5%AE%9E%E7%8E%B0%E7%B1%BB%E6%8A%A5%E9%94%99%E5%8F%91%E7%8E%B0%E4%B8%A4%E4%B8%AA%E5%AE%9E%E4%BE%8B%E9%97%AE%E9%A2%98/" title="关于SpringBoot启动某Service实现类报错发现两个实例问题"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+      <a href="/2020/10/28/Shiro%E4%B8%8ESpringBoot%E6%95%B4%E5%90%88/" title="Shiro与SpringBoot整合"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2020/10/21/%E5%85%B3%E4%BA%8ESpring%E7%BB%84%E4%BB%B6%E6%9C%AA%E5%8A%A0%E4%BA%BA%E5%88%B0%E5%AE%B9%E5%99%A8%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/" title="关于Spring组件未加人到容器报错问题"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/10/28/%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%87%BA%E7%8E%B0%E5%BE%AA%E7%8E%AF%E6%8A%A5%E9%94%99/" title="导入依赖出现循环报错"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

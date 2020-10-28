@@ -17,16 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Archive: 2020/10 | Hexo</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2020/10/index.html">
+  <title>JVM基本参数命令 | Hexo</title>
+  <meta name="description" content="JVM参数类型分三种：1.标准参数、2.-X参数、3.-XX参数（使用率高） 1234567标准参数常用命令：java -version 查看版本java -showversion 查看版本并退出java -D&lt;名称&gt;&#x3D;&lt;值&gt; 设置系统属性java -help 输出帮助消息java -server 选择server VM 默认就是serverjava -clien">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM基本参数命令">
+<meta property="og:url" content="http://example.com/2020/10/28/JVM%E5%9F%BA%E6%9C%AC%E5%8F%82%E6%95%B0%E5%91%BD%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JVM参数类型分三种：1.标准参数、2.-X参数、3.-XX参数（使用率高） 1234567标准参数常用命令：java -version 查看版本java -showversion 查看版本并退出java -D&lt;名称&gt;&#x3D;&lt;值&gt; 设置系统属性java -help 输出帮助消息java -server 选择server VM 默认就是serverjava -clien">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-28T02:47:25.000Z">
+<meta property="article:modified_time" content="2020-10-28T03:07:50.904Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/archives/2020/10/index.html">
+  <link rel="canonical" href="http://example.com/2020/10/28/JVM%E5%9F%BA%E6%9C%AC%E5%8F%82%E6%95%B0%E5%91%BD%E4%BB%A4/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -321,164 +325,173 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">Archive: 2020/10</h1>
-	      <p class="text-muted">Total 10 articles</p>
-	    </header>
-	    <div class="article-body">
-	      
-  
-  
+  <div class="content">
+  <article id="post-JVM基本参数命令" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-    
+    <div class="article-header">
       
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JVM基本参数命令
+    </h1>
+  
+
       
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2020" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2020
-            </a>
-            <!-- <a href="/archives/2020" class="archive-year">2020</a> -->
-          </h3>
-        </div>
-        <div id="collapse2020" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2020">
-        <div class="panel-body">
-          <div class="collection">
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/10/28/JVM%E5%9F%BA%E6%9C%AC%E5%8F%82%E6%95%B0%E5%91%BD%E4%BB%A4/" class="article-date">
+	  <time datetime="2020-10-28T02:47:25.000Z" itemprop="datePublished">2020-10-28</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/28/JVM%E5%9F%BA%E6%9C%AC%E5%8F%82%E6%95%B0%E5%91%BD%E4%BB%A4/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>JVM参数类型分三种：1.标准参数、2.-X参数、3.-XX参数（使用率高）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">标准参数常用命令：</span><br><span class="line">java -version 查看版本</span><br><span class="line">java -showversion 查看版本并退出</span><br><span class="line">java -D&lt;名称&gt;&#x3D;&lt;值&gt; 设置系统属性</span><br><span class="line">java -help 输出帮助消息</span><br><span class="line">java -server 选择server VM 默认就是server</span><br><span class="line">java -client 选择client VM</span><br></pre></td></tr></table></figure>
+
+<p> -server与-client区别：ServerVM初始堆空间大，默认使用并行垃圾回收器，启动慢运行快，ClientVM初始堆空间小，使用串行垃圾回收器，启动更快，运行更慢。还有一点就是现在64位机器只支持server不支持client了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-X参数常用命令：</span><br><span class="line">主要是三种模式</span><br><span class="line">-Xint：解释模式</span><br><span class="line">-Xcomp：编译模式</span><br><span class="line">-Xmixed：混合模式</span><br></pre></td></tr></table></figure>
+
+<p>-Xint模式会强制JVM执行所有字节码，运行速度低，-Xcomp使用时，会把所有代码编译成本地代码，-Xmixed是混合模式，是默认的，由JVM自己决定。-Xint是编译比较快而运行是比较慢的<br>-Xcomp是编译比较慢但是运行是比较快的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-XX参数常用命令：</span><br><span class="line">两种方式，boolean类型与非boolean类型</span><br><span class="line">boolean：-XX：[+-]&lt;名称&gt; 表示禁止或启动某命令</span><br><span class="line">非boolean：-XX：NewRatio&#x3D;1 表示新生代与老年代的比值</span><br><span class="line">-Xms：JVM初始堆内存，等价于-XX:InitialHeapSize</span><br><span class="line">-XmX：JVm最大堆内存，等价于-XX:MaxHeapSize，</span><br><span class="line">-XX:+PrintFlagsFinal  查看jvm运行参数</span><br></pre></td></tr></table></figure>
+
+<p>、运行-XX：+PrintFlagsFinal查看运行参数时，出现=与:=两种形式，其中=表示原始值，而:=表示修改过的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">jps -l 查看进程id</span><br><span class="line">jinfo -flags &lt;进程id&gt; 查看正在运行的jvm所有参数</span><br><span class="line">jinfo -flags &lt;参数名&gt; &lt;进程id&gt; 查看某个特定参数</span><br><span class="line">jstat 查看堆内存使用情况</span><br><span class="line">jstat -class &lt;pid&gt; 查看class加载统计</span><br><span class="line">jstat -complier &lt;pid&gt; 查看编译统计</span><br><span class="line">jstat -gc &lt;pid&gt; 查看垃圾回收统计</span><br><span class="line">jmap 对堆内存进行统计分析</span><br><span class="line">jmap -heap &lt;pid&gt; 查看内存使用情况</span><br><span class="line">jmap -histo &lt;pid&gt; | more 查看内存中所有对象数量及大小</span><br><span class="line">jmap -histo:live &lt;pid&gt; | more 查看内存中活跃对象的数量及大小</span><br><span class="line">jmap -dump:format&#x3D;b,file&#x3D;&#x2F;temp&#x2F;dumpdat &lt;pid&gt; 将内存使用情况dump到文件中</span><br><span class="line">jhat -port &lt;port&gt; &lt;file&gt; 用jhat将二进制dump文件打开并开启一个端口供访问分析</span><br></pre></td></tr></table></figure>
+
+<p>两个可视化工具，MAT，VisualVM。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
     
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2020/10/28/JVM%E5%9F%BA%E6%9C%AC%E5%8F%82%E6%95%B0%E5%91%BD%E4%BB%A4/" title="JVM基本参数命令" target="_blank" rel="external">http://example.com/2020/10/28/JVM%E5%9F%BA%E6%9C%AC%E5%8F%82%E6%95%B0%E5%91%BD%E4%BB%A4/</a>
+    </li>
     
-<a href="/2020/10/28/JVM%E5%9F%BA%E6%9C%AC%E5%8F%82%E6%95%B0%E5%91%BD%E4%BB%A4/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-10-28T02:47:25.000Z" itemprop="datePublished">2020-10-28</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> JVM基本参数命令
-</a>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
 
 
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">昵称</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
   
     
-    
-    
-<a href="/2020/10/28/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-10-28T02:47:10.000Z" itemprop="datePublished">2020-10-28</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> JVM垃圾回收和垃圾收集器
-</a>
-
-
-  
-    
-    
-    
-<a href="/2020/10/28/Tomcat8%E4%BC%98%E5%8C%96%E5%85%A5%E9%97%A8/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-10-28T02:46:53.000Z" itemprop="datePublished">2020-10-28</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Tomcat8优化入门
-</a>
-
-
-  
-    
-    
-    
-<a href="/2020/10/28/%E5%85%B3%E4%BA%8E%E5%90%91%E6%95%B0%E6%8D%AE%E5%BA%93%E6%B7%BB%E5%8A%A0%E4%BF%A1%E6%81%AF%E6%97%B6%E6%9C%AA%E8%AE%BE%E7%BD%AEid%E6%8A%A5%E9%94%99/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-10-28T02:46:00.000Z" itemprop="datePublished">2020-10-28</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 关于向数据库添加信息时未设置id报错
-</a>
-
-
-  
-    
-    
-    
-<a href="/2020/10/28/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%B0%8Fbug-%E5%85%B3%E4%BA%8EMap%E9%9B%86%E5%90%88%E7%9A%84/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-10-28T02:44:55.000Z" itemprop="datePublished">2020-10-28</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 记录一下一个小bug 关于Map集合的
-</a>
-
-
-  
-    
-    
-    
-<a href="/2020/10/28/%E5%85%B3%E4%BA%8E%E6%8B%A6%E6%88%AA%E5%99%A8%E6%96%B9%E6%B3%95%E6%8A%9B%E5%BC%82%E5%B8%B8%E9%97%AE%E9%A2%98/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-10-28T02:44:22.000Z" itemprop="datePublished">2020-10-28</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 关于拦截器方法抛异常问题
-</a>
-
-
-  
-    
-    
-    
-<a href="/2020/10/28/Shrio%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6%E5%85%A5%E9%97%A8/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-10-28T02:44:05.000Z" itemprop="datePublished">2020-10-28</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Shrio安全框架入门
-</a>
-
-
-  
-    
-    
-    
-<a href="/2020/10/28/Shiro%E4%B8%8ESpringBoot%E6%95%B4%E5%90%88/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-10-28T02:43:54.000Z" itemprop="datePublished">2020-10-28</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Shiro与SpringBoot整合
-</a>
-
-
-  
-    
-    
-    
-<a href="/2020/10/28/Shiro%E4%B8%AD%E7%9A%84%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86%EF%BC%88%E6%80%8E%E6%A0%B7%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BC%9A%E8%AF%9D%EF%BC%89/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-10-28T02:43:40.000Z" itemprop="datePublished">2020-10-28</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Shiro中的会话管理（怎样创建自己维护的会话）
-</a>
-
-
-  
-    
-    
-    
-<a href="/2020/10/28/%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%87%BA%E7%8E%B0%E5%BE%AA%E7%8E%AF%E6%8A%A5%E9%94%99/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-10-28T02:43:22.000Z" itemprop="datePublished">2020-10-28</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 导入依赖出现循环报错
-</a>
-
-
-  
-  
-    </div></div></div></section>
-  
-
-	    </div>
-  	</article>
+  <section id="comments">
   	
+      <div id="vcomments"></div>
     
-    <nav class="bar bar-footer clearfix" data-stick-bottom>
-        <div class="bar-inner">
-        <ul class="pager pull-left">
-            
-            <li class="prev disabled">
-                <a href="javascript:;">
-                    <i class="icon icon-angle-left"></i>
-                    Prev
-                </a>
-            </li>
-            
-            
-            <li class="next">
-                <a href="/archives/2020/10/page/2/">
-                    Next
-                    <i class="icon icon-angle-right"></i>
-                </a>
-            </li>
-            
-        </ul>
-        <div class="total-article bar-right">Page 1 of 2</div>
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2020/10/28/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" title="JVM垃圾回收和垃圾收集器"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </nav>
-    
- 	
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -539,6 +552,37 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 
