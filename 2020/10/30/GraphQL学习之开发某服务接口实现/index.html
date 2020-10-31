@@ -17,20 +17,18 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>导入依赖出现循环报错 | Hexo</title>
-  <meta name="description" content="Error:java: Annotation processing is not supported for module cycles. Please ensure that all modules 分析：cycle [qrcode-common,qrcode-manager-pojo] ：从这里可以看出，qrcode-common,qrcode-manager-pojo这两个模块有问题，即互相">
-<meta property="og:type" content="article">
-<meta property="og:title" content="导入依赖出现循环报错">
-<meta property="og:url" content="http://example.com/2020/10/28/%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%87%BA%E7%8E%B0%E5%BE%AA%E7%8E%AF%E6%8A%A5%E9%94%99/index.html">
+  <title>GraphQL学习之开发某服务接口实现 | Hexo</title>
+  <meta property="og:type" content="article">
+<meta property="og:title" content="GraphQL学习之开发某服务接口实现">
+<meta property="og:url" content="http://example.com/2020/10/30/GraphQL%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%BC%80%E5%8F%91%E6%9F%90%E6%9C%8D%E5%8A%A1%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Error:java: Annotation processing is not supported for module cycles. Please ensure that all modules 分析：cycle [qrcode-common,qrcode-manager-pojo] ：从这里可以看出，qrcode-common,qrcode-manager-pojo这两个模块有问题，即互相">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-28T02:43:22.000Z">
-<meta property="article:modified_time" content="2020-10-28T02:58:42.387Z">
+<meta property="article:published_time" content="2020-10-30T00:34:30.000Z">
+<meta property="article:modified_time" content="2020-10-30T00:34:30.297Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/2020/10/28/%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%87%BA%E7%8E%B0%E5%BE%AA%E7%8E%AF%E6%8A%A5%E9%94%99/index.html">
+  <link rel="canonical" href="http://example.com/2020/10/30/GraphQL%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%BC%80%E5%8F%91%E6%9F%90%E6%9C%8D%E5%8A%A1%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -326,14 +324,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-导入依赖出现循环报错" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-GraphQL学习之开发某服务接口实现" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      导入依赖出现循环报错
+      GraphQL学习之开发某服务接口实现
     </h1>
   
 
@@ -341,8 +339,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/10/28/%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%87%BA%E7%8E%B0%E5%BE%AA%E7%8E%AF%E6%8A%A5%E9%94%99/" class="article-date">
-	  <time datetime="2020-10-28T02:43:22.000Z" itemprop="datePublished">2020-10-28</time>
+	<a href="/2020/10/30/GraphQL%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%BC%80%E5%8F%91%E6%9F%90%E6%9C%8D%E5%8A%A1%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0/" class="article-date">
+	  <time datetime="2020-10-30T00:34:30.000Z" itemprop="datePublished">2020-10-30</time>
 	</a>
 </span>
         
@@ -350,15 +348,13 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/28/%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%87%BA%E7%8E%B0%E5%BE%AA%E7%8E%AF%E6%8A%A5%E9%94%99/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/30/GraphQL%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%BC%80%E5%8F%91%E6%9F%90%E6%9C%8D%E5%8A%A1%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>Error:java: Annotation processing is not supported for module cycles. Please ensure that all modules</p>
-<p>分析：cycle [qrcode-common,qrcode-manager-pojo] ：从这里可以看出，qrcode-common,qrcode-manager-pojo这两个模块有问题，即互相依赖，类似死循环</p>
-
+        
       
     </div>
     <div class="article-footer">
@@ -367,7 +363,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://example.com/2020/10/28/%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%87%BA%E7%8E%B0%E5%BE%AA%E7%8E%AF%E6%8A%A5%E9%94%99/" title="导入依赖出现循环报错" target="_blank" rel="external">http://example.com/2020/10/28/%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96%E5%87%BA%E7%8E%B0%E5%BE%AA%E7%8E%AF%E6%8A%A5%E9%94%99/</a>
+      <a href="http://example.com/2020/10/30/GraphQL%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%BC%80%E5%8F%91%E6%9F%90%E6%9C%8D%E5%8A%A1%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0/" title="GraphQL学习之开发某服务接口实现" target="_blank" rel="external">http://example.com/2020/10/30/GraphQL%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%BC%80%E5%8F%91%E6%9F%90%E6%9C%8D%E5%8A%A1%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -414,12 +410,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/2020/10/28/Shiro%E4%B8%AD%E7%9A%84%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86%EF%BC%88%E6%80%8E%E6%A0%B7%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%BC%9A%E8%AF%9D%EF%BC%89/" title="Shiro中的会话管理（怎样创建自己维护的会话）"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/2020/10/31/%E5%85%B3%E4%BA%8ERocketMQ%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF%E6%8A%A5%E9%94%99/" title="关于RocketMQ发送消息报错"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/2020/10/28/%E4%BD%BF%E7%94%A8umi-build%E5%87%BA%E7%8E%B0%E7%9A%84Path-must-be-a-string%E6%81%B6%E5%BF%83%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" title="使用umi build出现的Path must be a string恶心解决方法"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/10/30/GraphQL%E5%AD%A6%E4%B9%A0%E4%B9%8Bjava%E5%AE%9E%E7%8E%B0/" title="GraphQL学习之java实现"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
