@@ -17,16 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Hexo</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <title>关于RocketMQ的一些内容和特性 | Hexo</title>
+  <meta name="description" content="首先是发送消息分同步和异步， Producer的顺序消息：在某些业务中，consumer在消费消息时，是需要按照生产者发送消息的顺序进行消费的。 分布式消息：分布式事务分类有这几种：  基于单个JVM，数据库分库分表了（跨多个数据库）。  基于多JVM，服务拆分了（不跨数据库）。  基于多JVM，服务拆分了 并且数据库分库分表了。   采用半消息方式，发送消息后处理完本地事务再确认 执行流程 发送">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于RocketMQ的一些内容和特性">
+<meta property="og:url" content="http://example.com/2020/11/01/%E5%85%B3%E4%BA%8ERocketMQ%E7%9A%84%E4%B8%80%E4%BA%9B%E5%86%85%E5%AE%B9%E5%92%8C%E7%89%B9%E6%80%A7/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="首先是发送消息分同步和异步， Producer的顺序消息：在某些业务中，consumer在消费消息时，是需要按照生产者发送消息的顺序进行消费的。 分布式消息：分布式事务分类有这几种：  基于单个JVM，数据库分库分表了（跨多个数据库）。  基于多JVM，服务拆分了（不跨数据库）。  基于多JVM，服务拆分了 并且数据库分库分表了。   采用半消息方式，发送消息后处理完本地事务再确认 执行流程 发送">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-01T07:11:07.000Z">
+<meta property="article:modified_time" content="2020-11-02T02:54:26.602Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://example.com/index.html">
+  <link rel="canonical" href="http://example.com/2020/11/01/%E5%85%B3%E4%BA%8ERocketMQ%E7%9A%84%E4%B8%80%E4%BA%9B%E5%86%85%E5%AE%B9%E5%92%8C%E7%89%B9%E6%80%A7/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -319,309 +323,222 @@
 </aside>
 
   
-  <main class="main" role="main">
   
-  <div class="content article-list">
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-关于RocketMQ的一些内容和特性" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
+    <div class="article-header">
+      
+        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/01/%E5%85%B3%E4%BA%8ERocketMQ%E7%9A%84%E4%B8%80%E4%BA%9B%E5%86%85%E5%AE%B9%E5%92%8C%E7%89%B9%E6%80%A7/">关于RocketMQ的一些内容和特性</a>
+    <h1 class="article-title" itemprop="name">
+      关于RocketMQ的一些内容和特性
     </h1>
   
 
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
+      
+      <div class="article-meta">
+        <span class="article-date">
     <i class="icon icon-calendar-check"></i>
 	<a href="/2020/11/01/%E5%85%B3%E4%BA%8ERocketMQ%E7%9A%84%E4%B8%80%E4%BA%9B%E5%86%85%E5%AE%B9%E5%92%8C%E7%89%B9%E6%80%A7/" class="article-date">
-	  <time datetime="2020-11-01T07:11:07.000Z" itemprop="datePublished">11月 1</time>
+	  <time datetime="2020-11-01T07:11:07.000Z" itemprop="datePublished">2020-11-01</time>
 	</a>
 </span>
-    
-    
+        
+        
 
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/11/01/%E5%85%B3%E4%BA%8ERocketMQ%E7%9A%84%E4%B8%80%E4%BA%9B%E5%86%85%E5%AE%B9%E5%92%8C%E7%89%B9%E6%80%A7/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
+        
 
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/31/%E5%85%B3%E4%BA%8ERocketMQ%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF%E6%8A%A5%E9%94%99/">关于RocketMQ发送消息报错</a>
-    </h1>
-  
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/11/01/%E5%85%B3%E4%BA%8ERocketMQ%E7%9A%84%E4%B8%80%E4%BA%9B%E5%86%85%E5%AE%B9%E5%92%8C%E7%89%B9%E6%80%A7/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>首先是发送消息分同步和异步，</p>
+<p>Producer的顺序消息：在某些业务中，consumer在消费消息时，是需要按照生产者发送消息的顺序进行消费的。</p>
+<h3 id="分布式消息："><a href="#分布式消息：" class="headerlink" title="分布式消息："></a>分布式消息：</h3><p>分布式事务分类有这几种：</p>
+<ul>
+<li><p>基于单个JVM，数据库分库分表了（跨多个数据库）。</p>
+</li>
+<li><p>基于多JVM，服务拆分了（不跨数据库）。</p>
+</li>
+<li><p>基于多JVM，服务拆分了 并且数据库分库分表了。</p>
+</li>
+</ul>
+<p>采用半消息方式，发送消息后处理完本地事务再确认</p>
+<h3 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h3><ol>
+<li><p>发送方向 MQ 服务端发送消息。</p>
+</li>
+<li><p>MQ Server 将消息持久化成功之后，向发送方 ACK 确认消息已经发送成功，此时消息为半消息。</p>
+</li>
+<li><p>发送方开始执行本地事务逻辑。</p>
+</li>
+<li><p>发送方根据本地事务执行结果向 MQ Server 提交二次确认（Commit 或是 Rollback），MQ Server 收到</p>
+</li>
+</ol>
+<p>Commit 状态则将半消息标记为可投递，订阅方最终将收到该消息；MQ Server 收到 Rollback 状态则删除半</p>
+<p>消息，订阅方将不会接受该消息。</p>
+<ol start="5">
+<li>在断网或者是应用重启的特殊情况下，上述步骤4提交的二次确认最终未到达 MQ Server，经过固定时间后</li>
+</ol>
+<p>MQ Server 将对该消息发起消息回查。</p>
+<ol start="6">
+<li><p>发送方收到消息回查后，需要检查对应消息的本地事务执行的最终结果。</p>
+</li>
+<li><p>发送方根据检查得到的本地事务的最终状态再次提交二次确认，MQ Server 仍按照步骤4对半消息进行操作。</p>
+</li>
+</ol>
+<h3 id="Consumer的Push和Pull"><a href="#Consumer的Push和Pull" class="headerlink" title="Consumer的Push和Pull"></a>Consumer的Push和Pull</h3><p>push模式：客户端与服务端建立连接后，当服务端有消息时，将消息推送到客户端。</p>
+<p>pull模式：客户端不断的轮询请求服务端，来获取新的消息。</p>
+<p>底层都是pull，只不过push被封装到里面，pull需要自己实现</p>
+<p>长轮询：发送一个pull等待服务器有消息再拉取，避免了一直pull造成压力</p>
+<p>消息模式：集群模式和广播模式</p>
+<p>重复消息：肯定存在的，自己解决，要么设置key相同的不处理，要么处理结果相同保持为一条。</p>
+<h3 id="RocketMQ存储"><a href="#RocketMQ存储" class="headerlink" title="RocketMQ存储"></a>RocketMQ存储</h3><p>RocketMQ中的消息数据存储，采用了零拷贝技术（使用 mmap + write 方式），文件系统采用 Linux Ext4 文件系</p>
+<p>统进行存储。</p>
+<p>RocketMQ消息的存储是由ConsumeQueue和CommitLog配合完成的，CommitLog是真正存储数据的文件，</p>
+<p>ConsumeQueue是索引文件，存储数据指向到物理文件的配置。</p>
+<p>同步刷盘和异步刷盘</p>
+<ul>
+<li>同步刷盘<ul>
+<li>在返回写成功状态时，消息已经被写入磁盘 。</li>
+<li>具体流程是：消息写入内存的 PAGECACHE 后，立刻通知刷盘线程刷盘，然后等待刷盘完成，刷盘线程</li>
+</ul>
+</li>
+</ul>
+<p>执行完成后唤醒等待的线程，返回消息写成功的状态 。</p>
+<ul>
+<li>异步刷盘<ul>
+<li>在返回写成功状态时，消息可能只是被写入了内存的 PAGECACHE，写操作的返回快，吞吐量大</li>
+<li>当内存里的消息量积累到一定程度时，统一触发写磁盘动作，快速写入。</li>
+</ul>
+</li>
+</ul>
 
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2020/11/01/%E5%85%B3%E4%BA%8ERocketMQ%E7%9A%84%E4%B8%80%E4%BA%9B%E5%86%85%E5%AE%B9%E5%92%8C%E7%89%B9%E6%80%A7/" title="关于RocketMQ的一些内容和特性" target="_blank" rel="external">http://example.com/2020/11/01/%E5%85%B3%E4%BA%8ERocketMQ%E7%9A%84%E4%B8%80%E4%BA%9B%E5%86%85%E5%AE%B9%E5%92%8C%E7%89%B9%E6%80%A7/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpeg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">卖猪的艾木</span><small class="ml-1x">黑客与画家</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
   </div>
+</div>
+
+
+    </div>
+  </article>
   
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2020/10/31/%E5%85%B3%E4%BA%8ERocketMQ%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF%E6%8A%A5%E9%94%99/" class="article-date">
-	  <time datetime="2020-10-31T05:43:14.000Z" itemprop="datePublished">10月 31</time>
-	</a>
-</span>
     
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
     
+  </section>
 
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/31/%E5%85%B3%E4%BA%8ERocketMQ%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF%E6%8A%A5%E9%94%99/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
 
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/30/GraphQL%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%BC%80%E5%8F%91%E6%9F%90%E6%9C%8D%E5%8A%A1%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0/">GraphQL学习之开发某服务接口实现</a>
-    </h1>
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
   
-
-  </div>
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2020/10/31/%E5%85%B3%E4%BA%8ERocketMQ%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF%E6%8A%A5%E9%94%99/" title="关于RocketMQ发送消息报错"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
   
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2020/10/30/GraphQL%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%BC%80%E5%8F%91%E6%9F%90%E6%9C%8D%E5%8A%A1%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0/" class="article-date">
-	  <time datetime="2020-10-30T00:34:30.000Z" itemprop="datePublished">10月 30</time>
-	</a>
-</span>
-    
-    
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/30/GraphQL%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%BC%80%E5%8F%91%E6%9F%90%E6%9C%8D%E5%8A%A1%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/30/GraphQL%E5%AD%A6%E4%B9%A0%E4%B9%8Bjava%E5%AE%9E%E7%8E%B0/">GraphQL学习之java实现</a>
-    </h1>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
   
-
-  </div>
   
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2020/10/30/GraphQL%E5%AD%A6%E4%B9%A0%E4%B9%8Bjava%E5%AE%9E%E7%8E%B0/" class="article-date">
-	  <time datetime="2020-10-30T00:33:21.000Z" itemprop="datePublished">10月 30</time>
-	</a>
-</span>
+  <div class="bar-right">
     
-    
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/30/GraphQL%E5%AD%A6%E4%B9%A0%E4%B9%8Bjava%E5%AE%9E%E7%8E%B0/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/30/GraphQL%E5%85%A5%E9%97%A8/">GraphQL入门</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2020/10/30/GraphQL%E5%85%A5%E9%97%A8/" class="article-date">
-	  <time datetime="2020-10-29T23:57:42.000Z" itemprop="datePublished">10月 30</time>
-	</a>
-</span>
-    
-    
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/30/GraphQL%E5%85%A5%E9%97%A8/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/28/JVM%E5%9F%BA%E6%9C%AC%E5%8F%82%E6%95%B0%E5%91%BD%E4%BB%A4/">JVM基本参数命令</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2020/10/28/JVM%E5%9F%BA%E6%9C%AC%E5%8F%82%E6%95%B0%E5%91%BD%E4%BB%A4/" class="article-date">
-	  <time datetime="2020-10-28T02:47:25.000Z" itemprop="datePublished">10月 28</time>
-	</a>
-</span>
-    
-    
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/28/JVM%E5%9F%BA%E6%9C%AC%E5%8F%82%E6%95%B0%E5%91%BD%E4%BB%A4/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/28/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">JVM垃圾回收和垃圾收集器</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2020/10/28/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" class="article-date">
-	  <time datetime="2020-10-28T02:47:10.000Z" itemprop="datePublished">10月 28</time>
-	</a>
-</span>
-    
-    
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/28/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%92%8C%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/28/Tomcat8%E4%BC%98%E5%8C%96%E5%85%A5%E9%97%A8/">Tomcat8优化入门</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2020/10/28/Tomcat8%E4%BC%98%E5%8C%96%E5%85%A5%E9%97%A8/" class="article-date">
-	  <time datetime="2020-10-28T02:46:53.000Z" itemprop="datePublished">10月 28</time>
-	</a>
-</span>
-    
-    
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/28/Tomcat8%E4%BC%98%E5%8C%96%E5%85%A5%E9%97%A8/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/28/%E5%85%B3%E4%BA%8E%E5%90%91%E6%95%B0%E6%8D%AE%E5%BA%93%E6%B7%BB%E5%8A%A0%E4%BF%A1%E6%81%AF%E6%97%B6%E6%9C%AA%E8%AE%BE%E7%BD%AEid%E6%8A%A5%E9%94%99/">关于向数据库添加信息时未设置id报错</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2020/10/28/%E5%85%B3%E4%BA%8E%E5%90%91%E6%95%B0%E6%8D%AE%E5%BA%93%E6%B7%BB%E5%8A%A0%E4%BF%A1%E6%81%AF%E6%97%B6%E6%9C%AA%E8%AE%BE%E7%BD%AEid%E6%8A%A5%E9%94%99/" class="article-date">
-	  <time datetime="2020-10-28T02:46:00.000Z" itemprop="datePublished">10月 28</time>
-	</a>
-</span>
-    
-    
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/28/%E5%85%B3%E4%BA%8E%E5%90%91%E6%95%B0%E6%8D%AE%E5%BA%93%E6%B7%BB%E5%8A%A0%E4%BF%A1%E6%81%AF%E6%97%B6%E6%9C%AA%E8%AE%BE%E7%BD%AEid%E6%8A%A5%E9%94%99/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/28/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%B0%8Fbug-%E5%85%B3%E4%BA%8EMap%E9%9B%86%E5%90%88%E7%9A%84/">记录一下一个小bug 关于Map集合的</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2020/10/28/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%B0%8Fbug-%E5%85%B3%E4%BA%8EMap%E9%9B%86%E5%90%88%E7%9A%84/" class="article-date">
-	  <time datetime="2020-10-28T02:44:55.000Z" itemprop="datePublished">10月 28</time>
-	</a>
-</span>
-    
-    
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/10/28/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%B0%8Fbug-%E5%85%B3%E4%BA%8EMap%E9%9B%86%E5%90%88%E7%9A%84/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
     
   </div>
-
+  </div>
+</nav>
   
-    
-    <nav class="bar bar-footer clearfix" data-stick-bottom>
-        <div class="bar-inner">
-        <ul class="pager pull-left">
-            
-            <li class="prev disabled">
-                <a href="javascript:;">
-                    <i class="icon icon-angle-left"></i>
-                    上一页
-                </a>
-            </li>
-            
-            
-            <li class="next">
-                <a href="/page/2/">
-                    下一页
-                    <i class="icon icon-angle-right"></i>
-                </a>
-            </li>
-            
-        </ul>
-        <div class="total-article bar-right">Page 1 of 3</div>
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </nav>
-    
- 
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -686,6 +603,33 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
    
 
 
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 
