@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>ElasticStack之Beats学习 | Hexo</title>
+  <meta name="description" content="Beats–轻量型数据采集器官网地址：https:&#x2F;&#x2F;www.elastic.co&#x2F;cn&#x2F;products&#x2F;beats 一、Filebeat–轻量型日志采集器1.工作原理： Harvester  负责读取单个文件的内容 文件被删除或者重命名，将继续读取该文件   Prospector  找到要读取文件的来源 管理harvester 若输入类型为日志类型，则查找路径匹配的所有文件，并为每一个文件分配">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ElasticStack之Beats学习">
+<meta property="og:url" content="http://example.com/2020/12/02/ElasticStack%E4%B9%8BBeats%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Beats–轻量型数据采集器官网地址：https:&#x2F;&#x2F;www.elastic.co&#x2F;cn&#x2F;products&#x2F;beats 一、Filebeat–轻量型日志采集器1.工作原理： Harvester  负责读取单个文件的内容 文件被删除或者重命名，将继续读取该文件   Prospector  找到要读取文件的来源 管理harvester 若输入类型为日志类型，则查找路径匹配的所有文件，并为每一个文件分配">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-02T08:13:51.000Z">
+<meta property="article:modified_time" content="2020-12-02T09:30:45.863Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://example.com/2020/12/02/ElasticStack%E4%B9%8BBeats%E5%AD%A6%E4%B9%A0/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpeg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">卖猪的艾木</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">黑客与画家</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Weihai,Shandong China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">21</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/12/02/ElasticStack%E4%B9%8BBeats%E5%AD%A6%E4%B9%A0/" class="title">ElasticStack之Beats学习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-12-02T08:13:51.000Z" itemprop="datePublished">2020-12-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/11/26/elasticsearch%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/" class="title">elasticsearch入门学习</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-11-26T13:29:10.000Z" itemprop="datePublished">2020-11-26</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/11/01/%E5%85%B3%E4%BA%8ERocketMQ%E7%9A%84%E4%B8%80%E4%BA%9B%E5%86%85%E5%AE%B9%E5%92%8C%E7%89%B9%E6%80%A7/" class="title">关于RocketMQ的一些内容和特性</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-11-01T07:11:07.000Z" itemprop="datePublished">2020-11-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/10/31/%E5%85%B3%E4%BA%8ERocketMQ%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF%E6%8A%A5%E9%94%99/" class="title">关于RocketMQ发送消息报错</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-10-31T05:43:14.000Z" itemprop="datePublished">2020-10-31</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2020/10/30/GraphQL%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%BC%80%E5%8F%91%E6%9F%90%E6%9C%8D%E5%8A%A1%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0/" class="title">GraphQL学习之开发某服务接口实现</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-10-30T00:34:30.000Z" itemprop="datePublished">2020-10-30</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-ElasticStack之Beats学习" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ElasticStack之Beats学习
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2020/12/02/ElasticStack%E4%B9%8BBeats%E5%AD%A6%E4%B9%A0/" class="article-date">
+	  <time datetime="2020-12-02T08:13:51.000Z" itemprop="datePublished">2020-12-02</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/12/02/ElasticStack%E4%B9%8BBeats%E5%AD%A6%E4%B9%A0/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="Beats–轻量型数据采集器"><a href="#Beats–轻量型数据采集器" class="headerlink" title="Beats–轻量型数据采集器"></a>Beats–轻量型数据采集器</h1><p>官网地址：<a target="_blank" rel="noopener" href="https://www.elastic.co/cn/products/beats">https://www.elastic.co/cn/products/beats</a></p>
+<h2 id="一、Filebeat–轻量型日志采集器"><a href="#一、Filebeat–轻量型日志采集器" class="headerlink" title="一、Filebeat–轻量型日志采集器"></a>一、Filebeat–轻量型日志采集器</h2><h3 id="1-工作原理："><a href="#1-工作原理：" class="headerlink" title="1.工作原理："></a>1.工作原理：</h3><ul>
+<li><p>Harvester</p>
+<ul>
+<li>负责读取单个文件的内容</li>
+<li>文件被删除或者重命名，将继续读取该文件</li>
+</ul>
+</li>
+<li><p>Prospector</p>
+<ul>
+<li>找到要读取文件的来源</li>
+<li>管理harvester</li>
+<li>若输入类型为日志类型，则查找路径匹配的所有文件，并为每一个文件分配启动一个harvester</li>
+<li>目前支持两种类型：log和stdin</li>
+</ul>
+</li>
+<li><p>filebeat如何保持文件状态（如何判断该读取文件的哪一行）</p>
+<ul>
+<li>filebeat会保存每个文件的状态并经常刷新到register中（filebeat目录下的register目录下）</li>
+<li>该状态记录了harvester读取的最后一行在哪</li>
+<li>如果输出无法访问（比如ealsticsearch宕机），filebeat会跟踪最后一行，输出可用时继续下一行发送</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-基本配置讲解"><a href="#2-基本配置讲解" class="headerlink" title="2.基本配置讲解"></a>2.基本配置讲解</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">创建如下配置文件 xxx.yml</span></span><br><span class="line">filebeat.inputs: </span><br><span class="line">- type: stdin #控制台输入  log ：日志</span><br><span class="line">  enabled: true </span><br><span class="line">setup.template.settings: </span><br><span class="line">  index.number_of_shards: 3 #分片数3 </span><br><span class="line">output.console: #输出到控制台</span><br><span class="line">  pretty: true </span><br><span class="line">  enable: true</span><br><span class="line"><span class="meta">#</span><span class="bash">启动filebeat</span></span><br><span class="line">./filebeat -e -c xxx.yml</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">创建如下配置文件 xxx.yml</span></span><br><span class="line">filebeat.inputs: </span><br><span class="line">- type: log #日志</span><br><span class="line">  enabled: true </span><br><span class="line">  paths:</span><br><span class="line">    - /haoke/beats/logs/*.log #自己需要采集的日志路径</span><br><span class="line">  tags: [&quot;web&quot;] #添加自定义tag，便于后续的处理</span><br><span class="line">  fields: #添加自定义字段</span><br><span class="line">  from: haoke-im</span><br><span class="line">  fields_under_root: true #true为添加到根节点，false为添加到子节点中</span><br><span class="line">setup.template.settings: </span><br><span class="line">  index.number_of_shards: 3 #分片数3 </span><br><span class="line">output.console: #输出到控制台</span><br><span class="line">  pretty: true </span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">创建如下配置文件 xxx.yml</span></span><br><span class="line">filebeat.inputs: </span><br><span class="line">- type: log #日志</span><br><span class="line">  enabled: true </span><br><span class="line">  paths:</span><br><span class="line">    - /haoke/beats/logs/*.log #自己需要采集的日志路径</span><br><span class="line">  tags: [&quot;web&quot;] #添加自定义tag，便于后续的处理</span><br><span class="line">  fields: #添加自定义字段</span><br><span class="line">  from: haoke-im</span><br><span class="line">  fields_under_root: true #true为添加到根节点，false为添加到子节点中</span><br><span class="line">setup.template.settings: </span><br><span class="line">  index.number_of_shards: 3 #分片数3</span><br><span class="line">output.elasticsearch: #指定ES的配置</span><br><span class="line">	hosts: [&quot;192.168.1.7:9200&quot;,&quot;192.168.1.7:9201&quot;,&quot;192.168.1.7:9202&quot;] #如果是集群就可以配置多个地址</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-Module"><a href="#3-Module" class="headerlink" title="3.Module"></a>3.Module</h3><p>前面要想实现日志数据的读取以及处理都是自己手动配置的，其实，在Filebeat中，有大量的Module，可以简化我</p>
+<p>们的配置，直接就可以使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">./filebeat modules list</span><br><span class="line">Enabled:	#开启的module</span><br><span class="line"></span><br><span class="line">Disabled:	#未开启的module</span><br><span class="line">apache2 </span><br><span class="line">auditd </span><br><span class="line">elasticsearch </span><br><span class="line">haproxy </span><br><span class="line">icinga </span><br><span class="line">iis </span><br><span class="line">kafka </span><br><span class="line">kibana</span><br><span class="line">logstash </span><br><span class="line">mongodb </span><br><span class="line">mysql</span><br><span class="line">nginx </span><br><span class="line">osquery</span><br><span class="line">postgresql</span><br><span class="line">redis </span><br><span class="line">suricata </span><br><span class="line">system </span><br><span class="line">traefik</span><br></pre></td></tr></table></figure>
+
+<p>以redis module为例示范如何开启redis module以及怎样修改配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">./filebeat modules enable redis #启动</span><br><span class="line">./filebeat modules disable redis #禁用</span><br><span class="line"></span><br><span class="line">Enabled: </span><br><span class="line">redis</span><br><span class="line">Disabled: </span><br><span class="line"><span class="meta">#</span><span class="bash">...	</span></span><br></pre></td></tr></table></figure>
+
+<p>redis module 配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">cd modules.d/</span><br><span class="line">vim redis.yml</span><br><span class="line"></span><br><span class="line">- module: redis</span><br><span class="line"><span class="meta">  #</span><span class="bash"> Main logs</span></span><br><span class="line">  log:</span><br><span class="line">    enabled: true</span><br><span class="line">    # Set custom paths for the log files. If left empty, </span><br><span class="line">    # Filebeat will choose the paths depending on your OS.</span><br><span class="line">    var.paths: [&quot;/data/redis-data/node01/*.log&quot;] #主要修改redis的log地址</span><br><span class="line">    </span><br><span class="line">    # Slow logs, retrieved via the Redis API (SLOWLOG)</span><br><span class="line">    slowlog:</span><br><span class="line">      enabled: false</span><br><span class="line">      </span><br><span class="line">      # The Redis hosts to connect to. </span><br><span class="line">      #var.hosts: [&quot;localhost:6379&quot;]</span><br><span class="line">      #...</span><br></pre></td></tr></table></figure>
+
+<p>redis默认情况下，是不会输出日志的，需要进行配置，前面我们使用的容器都没有配置日志输出，下面需要配置一</p>
+<p>下。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker create --name redis-node01 -v /data/redis-data/node01:/data -p 6379:6379 redis:5.0.2 --cluster-enabled yes --cluster-config-file nodes-node-01.conf --loglevel debug --logfile nodes-node-01.log</span><br><span class="line"></span><br><span class="line">docker create --name redis-node02 -v /data/redis-data/node02:/data -p 6380:6379 redis:5.0.2 --cluster-enabled yes --cluster-config-file nodes-node-02.conf --loglevel debug --logfile nodes-node-02.log</span><br><span class="line"></span><br><span class="line">docker create --name redis-node03 -v /data/redis-data/node03:/data -p 6381:6379 redis:5.0.2 --cluster-enabled yes --cluster-config-file nodes-node-03.conf --loglevel debug --logfile nodes-node-03.log</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>loglevel 日志等级分为：debug、verbose、notice、warning</p>
+<p>其中，debug 会有大量信息，对开发、测试有用；</p>
+<p>verbose 等于log4j 中的info，有很多信息，但是不会像debug那样乱；</p>
+<p>notice 一般信息；</p>
+<p>warning 只有非常重要/关键的消息被记录。</p>
+</blockquote>
+<p>配置filebeat</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">filebeat.inputs: </span><br><span class="line">- type: log #日志</span><br><span class="line">  enabled: true </span><br><span class="line">  paths:</span><br><span class="line">    - /haoke/beats/logs/*.log #自己需要采集的日志路径</span><br><span class="line">setup.template.settings: </span><br><span class="line">  index.number_of_shards: 3 #分片数3</span><br><span class="line">output.elasticsearch: #指定ES的配置</span><br><span class="line">  hosts: [&quot;192.168.1.7:9200&quot;,&quot;192.168.1.7:9201&quot;,&quot;192.168.1.7:9202&quot;] #如果是集群就可以配置多个地址</span><br><span class="line">filebeat.config.modules: #加载module</span><br><span class="line">  path: $&#123;path.config&#125;/modules.d/*.yml </span><br><span class="line">  reload.enabled: false</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="二、Metricbeat–轻量型指标采集器"><a href="#二、Metricbeat–轻量型指标采集器" class="headerlink" title="二、Metricbeat–轻量型指标采集器"></a>二、Metricbeat–轻量型指标采集器</h2><p>用于从系统和服务中收集指标</p>
+<p>Metricbeat有2部分组成</p>
+<ul>
+<li>Module<ul>
+<li>收集的对象，如：mysql、操作系统等</li>
+</ul>
+</li>
+<li>Metricset<ul>
+<li>收集的指标集合，如：cpu，network，memory等</li>
+</ul>
+</li>
+</ul>
+<p>配置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vim metricbeat.yml</span><br><span class="line"></span><br><span class="line">metricbeat.config.modules:</span><br><span class="line">  path: $&#123;path.config&#125;/modules.d/*.yml </span><br><span class="line">  reload.enabled: false</span><br><span class="line">setup.template.settings: </span><br><span class="line">  index.number_of_shards: 1 #分片数自己设置</span><br><span class="line">  index.codec: best_compression</span><br><span class="line">setup.kibana: </span><br><span class="line">output.elasticsearch: </span><br><span class="line">  hosts: [&quot;192.168.1.7:9200&quot;,&quot;192.168.1.7:9201&quot;,&quot;192.168.1.7:9202&quot;] #自己的地址</span><br><span class="line">processors: </span><br><span class="line">  - add_host_metadata: ~ </span><br><span class="line">  - add_cloud_metadata: ~</span><br></pre></td></tr></table></figure>
+
+<p>Module使用，直接开启某module然后配置yml文件（如redis.yml ），设置集群的地址等，直接启动就行。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://example.com/2020/12/02/ElasticStack%E4%B9%8BBeats%E5%AD%A6%E4%B9%A0/" title="ElasticStack之Beats学习" target="_blank" rel="external">http://example.com/2020/12/02/ElasticStack%E4%B9%8BBeats%E5%AD%A6%E4%B9%A0/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpeg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">卖猪的艾木</span><small class="ml-1x">黑客与画家</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2020/11/26/elasticsearch%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/" title="elasticsearch入门学习"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
