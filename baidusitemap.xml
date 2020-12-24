@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://example.com/2020/12/21/Mybatis%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%89%E5%A4%A9/</loc>
+    <lastmod>2020-12-24</lastmod>
+  </url>
+  <url>
+    <loc>http://example.com/2020/12/21/Mybatis%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E5%A4%A9/</loc>
+    <lastmod>2020-12-22</lastmod>
+  </url>
+  <url>
+    <loc>http://example.com/2020/12/21/Mybatis%E5%AD%A6%E4%B9%A0%E7%AC%AC%E5%9B%9B%E5%A4%A9/</loc>
+    <lastmod>2020-12-21</lastmod>
+  </url>
+  <url>
+    <loc>http://example.com/2020/12/20/Mybatis%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A1%86%E6%9E%B6/</loc>
+    <lastmod>2020-12-21</lastmod>
+  </url>
+  <url>
     <loc>http://example.com/2020/12/07/Mysql%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2020-12-07</lastmod>
   </url>
